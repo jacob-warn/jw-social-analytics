@@ -1,0 +1,923 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jacob Warn — Social Analytics</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+  <style>
+    :root {
+      --navy: #1C2B3A;
+      --navy-mid: #2E4A6B;
+      --blue: #4A7FA5;
+      --blue-light: #7BAFD4;
+      --gold: #C9A96E;
+      --bg: #F5F4F1;
+      --card: #FFFFFF;
+      --text: #1C2B3A;
+      --muted: #6B7A8D;
+      --border: #E2E7EF;
+      --green: #2A7A50;
+      --amber: #B86A1A;
+      --li: #0A66C2;
+      --ig: #C13584;
+      --ss: #E85D1A;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      font-size: 14px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── Header ───────────────────────────────────── */
+    .header {
+      background: var(--navy);
+      color: #fff;
+      padding: 0 32px;
+      display: flex;
+      align-items: stretch;
+      justify-content: space-between;
+      min-height: 72px;
+    }
+    .header-left { display: flex; flex-direction: column; justify-content: center; gap: 3px; padding: 16px 0; }
+    .header-title { font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 600; letter-spacing: -0.2px; }
+    .header-sub { font-size: 12px; color: rgba(255,255,255,0.5); }
+    .header-right {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      padding: 16px 0;
+    }
+    .header-stat { text-align: right; }
+    .header-stat-value { font-size: 22px; font-weight: 700; color: var(--gold); line-height: 1; }
+    .header-stat-label { font-size: 11px; color: rgba(255,255,255,0.5); margin-top: 2px; }
+    .header-divider { width: 1px; height: 36px; background: rgba(255,255,255,0.12); }
+
+    /* ── Nav / Controls ───────────────────────────── */
+    .controls-bar {
+      background: var(--card);
+      border-bottom: 1px solid var(--border);
+      padding: 12px 32px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .controls-bar label { font-size: 12px; font-weight: 500; color: var(--muted); white-space: nowrap; }
+    select, input[type="text"] {
+      border: 1px solid var(--border);
+      border-radius: 7px;
+      padding: 7px 11px;
+      font-size: 13px;
+      font-family: 'Inter', sans-serif;
+      color: var(--text);
+      background: #fff;
+      cursor: pointer;
+      transition: border-color 0.15s;
+    }
+    select:focus, input:focus { outline: none; border-color: var(--blue); }
+    .controls-sep { flex: 1; }
+
+    /* ── Main layout ──────────────────────────────── */
+    .main { max-width: 1240px; margin: 0 auto; padding: 28px 24px 60px; }
+
+    .section { margin-bottom: 40px; }
+    .section-header {
+      font-family: 'Playfair Display', serif;
+      font-size: 17px;
+      font-weight: 600;
+      color: var(--navy);
+      margin-bottom: 16px;
+      padding-bottom: 10px;
+      border-bottom: 2px solid var(--border);
+      display: flex;
+      align-items: baseline;
+      gap: 10px;
+    }
+    .section-header span { font-family: 'Inter', sans-serif; font-size: 12px; font-weight: 400; color: var(--muted); }
+
+    /* ── KPI Cards ────────────────────────────────── */
+    .kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 14px;
+    }
+    @media (max-width: 1100px) { .kpi-grid { grid-template-columns: repeat(3, 1fr); } }
+    @media (max-width: 640px)  { .kpi-grid { grid-template-columns: repeat(2, 1fr); } }
+
+    .kpi {
+      background: var(--card);
+      border-radius: 12px;
+      padding: 18px 16px 16px;
+      border: 1px solid var(--border);
+      position: relative;
+      overflow: hidden;
+    }
+    .kpi::after {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      border-radius: 12px 12px 0 0;
+    }
+    .kpi.li::after { background: var(--li); }
+    .kpi.ig::after { background: var(--ig); }
+    .kpi.ss::after { background: var(--ss); }
+    .kpi.all::after { background: var(--gold); }
+
+    .kpi-label { font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.8px; color: var(--muted); margin-bottom: 8px; }
+    .kpi-value { font-size: 26px; font-weight: 700; color: var(--navy); line-height: 1; margin-bottom: 5px; }
+    .kpi-delta { font-size: 12px; font-weight: 500; }
+    .kpi-delta.up   { color: var(--green); }
+    .kpi-delta.down { color: var(--amber); }
+    .kpi-delta.flat { color: var(--muted); }
+    .kpi-note { font-size: 11px; color: var(--muted); margin-top: 4px; }
+
+    /* ── Two-col layout ───────────────────────────── */
+    .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    @media (max-width: 768px) { .two-col { grid-template-columns: 1fr; } }
+
+    /* ── Signal panels ────────────────────────────── */
+    .signal-panel {
+      background: var(--card);
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      overflow: hidden;
+    }
+    .signal-panel-header {
+      padding: 14px 18px 12px;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.7px;
+      color: var(--muted);
+    }
+    .dot { width: 8px; height: 8px; border-radius: 50%; display: inline-block; flex-shrink: 0; }
+    .dot-green { background: var(--green); }
+    .dot-gold  { background: var(--gold); }
+
+    .signal-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 11px 18px;
+      border-bottom: 1px solid var(--border);
+      font-size: 13px;
+    }
+    .signal-row:last-child { border-bottom: none; }
+    .signal-label { color: var(--muted); }
+    .signal-value { font-weight: 600; color: var(--navy); }
+    .signal-badge {
+      font-size: 10px;
+      font-weight: 600;
+      padding: 2px 7px;
+      border-radius: 10px;
+      background: #E8F5EE;
+      color: var(--green);
+      margin-left: 8px;
+    }
+    .signal-badge.warn { background: #FDF3E3; color: var(--amber); }
+
+    /* ── Publisher progress ───────────────────────── */
+    .progress-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+    }
+    @media (max-width: 900px) { .progress-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 480px) { .progress-grid { grid-template-columns: 1fr; } }
+
+    .progress-card {
+      background: var(--card);
+      border-radius: 12px;
+      padding: 18px;
+      border: 1px solid var(--border);
+    }
+    .progress-card h4 {
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.7px;
+      color: var(--muted);
+      margin-bottom: 12px;
+    }
+    .progress-numbers {
+      display: flex;
+      align-items: baseline;
+      gap: 6px;
+      margin-bottom: 10px;
+    }
+    .progress-current { font-size: 26px; font-weight: 700; color: var(--navy); line-height: 1; }
+    .progress-target  { font-size: 12px; color: var(--muted); }
+    .progress-track { background: var(--border); border-radius: 6px; height: 6px; margin-bottom: 6px; overflow: hidden; }
+    .progress-fill { height: 6px; border-radius: 6px; transition: width 0.8s cubic-bezier(.4,0,.2,1); }
+    .progress-fill.li { background: var(--li); }
+    .progress-fill.ig { background: var(--ig); }
+    .progress-fill.ss { background: var(--ss); }
+    .progress-pct { font-size: 11px; color: var(--muted); }
+
+    /* ── Charts ───────────────────────────────────── */
+    .chart-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    @media (max-width: 768px) { .chart-grid { grid-template-columns: 1fr; } }
+
+    .chart-card {
+      background: var(--card);
+      border-radius: 12px;
+      padding: 20px;
+      border: 1px solid var(--border);
+    }
+    .chart-card h3 {
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.7px;
+      color: var(--muted);
+      margin-bottom: 16px;
+    }
+    .chart-card canvas { max-height: 210px; }
+
+    /* ── Posts table ──────────────────────────────── */
+    .table-controls {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 14px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+    .table-controls input { flex: 1; min-width: 200px; }
+
+    .table-wrap {
+      background: var(--card);
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      overflow: hidden;
+    }
+    .table-scroll { overflow-x: auto; }
+
+    table { width: 100%; border-collapse: collapse; }
+    thead { background: var(--navy); }
+    thead th {
+      padding: 11px 14px;
+      text-align: left;
+      font-size: 10px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.7px;
+      color: rgba(255,255,255,0.7);
+      white-space: nowrap;
+      cursor: pointer;
+      user-select: none;
+      transition: color 0.1s;
+    }
+    thead th:hover { color: #fff; }
+    thead th.sort-asc::after  { content: ' ↑'; color: var(--gold); }
+    thead th.sort-desc::after { content: ' ↓'; color: var(--gold); }
+
+    tbody tr { border-bottom: 1px solid var(--border); transition: background 0.1s; }
+    tbody tr:hover { background: #F4F7FB; }
+    tbody tr:last-child { border-bottom: none; }
+    td { padding: 11px 14px; font-size: 13px; vertical-align: middle; }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      padding: 2px 8px;
+      border-radius: 10px;
+      font-size: 10px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.4px;
+      white-space: nowrap;
+    }
+    .badge-li { background: #E8F1FC; color: var(--li); }
+    .badge-ig { background: #FCE8F3; color: var(--ig); }
+    .badge-ss { background: #FEF0E8; color: var(--ss); }
+    .badge-pillar {
+      background: #EEF2F7;
+      color: var(--navy-mid);
+      font-size: 10px;
+      font-weight: 500;
+      border-radius: 10px;
+      padding: 2px 8px;
+    }
+
+    .hook-cell { max-width: 260px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .num { font-variant-numeric: tabular-nums; }
+    .eng-rate { font-weight: 600; }
+    .eng-rate.great  { color: var(--green); }
+    .eng-rate.good   { color: #3A9060; }
+    .eng-rate.ok     { color: var(--amber); }
+    .eng-rate.low    { color: var(--muted); }
+    .null-val        { color: var(--muted); }
+
+    .table-footer {
+      padding: 10px 16px;
+      font-size: 12px;
+      color: var(--muted);
+      border-top: 1px solid var(--border);
+      background: var(--card);
+      border-radius: 0 0 12px 12px;
+    }
+
+    /* ── Analysis ─────────────────────────────────── */
+    .analysis-card {
+      background: var(--card);
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--navy);
+      overflow: hidden;
+      margin-bottom: 14px;
+    }
+    .analysis-card:last-child { margin-bottom: 0; }
+    .analysis-head {
+      padding: 16px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      cursor: pointer;
+      user-select: none;
+    }
+    .analysis-head:hover { background: #F8F9FC; }
+    .analysis-week-label {
+      font-size: 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.7px;
+      color: var(--blue);
+    }
+    .analysis-toggle { font-size: 18px; color: var(--muted); transition: transform 0.2s; }
+    .analysis-toggle.open { transform: rotate(180deg); }
+    .analysis-body {
+      padding: 0 20px 20px;
+      border-top: 1px solid var(--border);
+    }
+    .analysis-body.hidden { display: none; }
+    .analysis-text {
+      font-size: 14px;
+      line-height: 1.85;
+      color: var(--text);
+      white-space: pre-line;
+      padding-top: 16px;
+    }
+
+    /* ── Responsive ───────────────────────────────── */
+    @media (max-width: 768px) {
+      .header { padding: 0 16px; }
+      .header-right { gap: 12px; }
+      .header-stat-value { font-size: 17px; }
+      .controls-bar { padding: 10px 16px; }
+      .main { padding: 16px 12px 40px; }
+    }
+    @media (max-width: 480px) {
+      .header-right { display: none; }
+    }
+
+    .no-data { text-align: center; padding: 36px; color: var(--muted); font-size: 13px; }
+  </style>
+</head>
+<body>
+
+<!-- Header -->
+<header class="header">
+  <div class="header-left">
+    <div class="header-title">Jacob Warn — Social Analytics</div>
+    <div class="header-sub" id="last-updated">Loading...</div>
+  </div>
+  <div class="header-right">
+    <div class="header-stat">
+      <div class="header-stat-value" id="hdr-weeks">—</div>
+      <div class="header-stat-label">weeks to pitch deadline</div>
+    </div>
+    <div class="header-divider"></div>
+    <div class="header-stat">
+      <div class="header-stat-value" id="hdr-li">—</div>
+      <div class="header-stat-label">LinkedIn followers</div>
+    </div>
+    <div class="header-divider"></div>
+    <div class="header-stat">
+      <div class="header-stat-value" id="hdr-ss">—</div>
+      <div class="header-stat-label">Substack open rate</div>
+    </div>
+  </div>
+</header>
+
+<!-- Controls -->
+<div class="controls-bar">
+  <label>Week:</label>
+  <select id="week-select"></select>
+  <div class="controls-sep"></div>
+  <span style="font-size:12px; color:var(--muted)">Posts table and signal panels reflect selected week · Charts always show all-time</span>
+</div>
+
+<main class="main">
+
+  <!-- KPIs -->
+  <section class="section">
+    <div class="section-header">This Week <span id="kpi-week-label"></span></div>
+    <div class="kpi-grid" id="kpi-grid"></div>
+  </section>
+
+  <!-- Signals -->
+  <section class="section">
+    <div class="section-header">Signal Dashboard</div>
+    <div class="two-col">
+      <div class="signal-panel">
+        <div class="signal-panel-header"><span class="dot dot-green"></span>Publisher Signals</div>
+        <div id="pub-signals"></div>
+      </div>
+      <div class="signal-panel">
+        <div class="signal-panel-header"><span class="dot dot-gold"></span>Community Signals</div>
+        <div id="com-signals"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Publisher pitch progress -->
+  <section class="section">
+    <div class="section-header">Publisher Pitch Progress <span>target: December 2026</span></div>
+    <div class="progress-grid" id="progress-grid"></div>
+  </section>
+
+  <!-- Charts -->
+  <section class="section">
+    <div class="section-header">All-Time Trends</div>
+    <div class="chart-grid">
+      <div class="chart-card">
+        <h3>Follower &amp; Subscriber Growth</h3>
+        <canvas id="chart-growth"></canvas>
+      </div>
+      <div class="chart-card">
+        <h3>LinkedIn Engagement Rate (%)</h3>
+        <canvas id="chart-eng"></canvas>
+      </div>
+      <div class="chart-card">
+        <h3>Weekly Impressions &amp; Reach</h3>
+        <canvas id="chart-reach"></canvas>
+      </div>
+      <div class="chart-card">
+        <h3>Content Pillar — Avg Engagements per Post</h3>
+        <canvas id="chart-pillar"></canvas>
+      </div>
+    </div>
+  </section>
+
+  <!-- Posts table -->
+  <section class="section">
+    <div class="section-header">All Posts</div>
+    <div class="table-controls">
+      <input type="text" id="search" placeholder="Search by hook or title…">
+      <select id="f-platform">
+        <option value="">All platforms</option>
+        <option value="linkedin">LinkedIn</option>
+        <option value="instagram">Instagram</option>
+        <option value="substack">Substack</option>
+      </select>
+      <select id="f-pillar">
+        <option value="">All pillars</option>
+        <option value="Psychology of Change">Psychology of Change</option>
+        <option value="Business with Purpose">Business with Purpose</option>
+        <option value="Reducing Harm in Practice">Reducing Harm in Practice</option>
+        <option value="The Book Journey">The Book Journey</option>
+      </select>
+      <select id="f-type">
+        <option value="">All formats</option>
+        <option value="Text">Text</option>
+        <option value="Carousel">Carousel</option>
+        <option value="Reel">Reel</option>
+        <option value="Image">Image</option>
+        <option value="Newsletter">Newsletter</option>
+      </select>
+      <select id="f-week">
+        <option value="">All weeks</option>
+      </select>
+    </div>
+    <div class="table-wrap">
+      <div class="table-scroll">
+        <table>
+          <thead>
+            <tr>
+              <th data-col="date">Date</th>
+              <th data-col="platform">Platform</th>
+              <th>Hook / Title</th>
+              <th data-col="type">Format</th>
+              <th>Pillar</th>
+              <th data-col="reach" title="Impressions (LinkedIn), Reach (Instagram), Views (Substack)">Reach</th>
+              <th data-col="engagements">Eng.</th>
+              <th data-col="engRate">Rate</th>
+              <th data-col="saves">Saves</th>
+              <th data-col="comments">Comments</th>
+            </tr>
+          </thead>
+          <tbody id="posts-tbody"></tbody>
+        </table>
+      </div>
+      <div class="table-footer" id="table-footer"></div>
+    </div>
+  </section>
+
+  <!-- Expert Analysis -->
+  <section class="section">
+    <div class="section-header">Weekly Expert Analysis</div>
+    <div id="analysis-list"></div>
+  </section>
+
+</main>
+
+<script>
+// ── Inline fallback (used when file:// or fetch fails) ─────────────────────
+const INLINE_DATA = {"meta": {"lastUpdated": "2026-06-11", "site": "jacobwarn.substack.com", "targets": {"substackSubscribers": 5000, "substackOpenRate": 0.4, "linkedinFollowers": 10000, "instagramFollowers": 10000, "deadline": "2026-12-01"}}, "weeks": [{"weekEnding": "2026-06-11", "weekLabel": "11 Jun '26", "insight": "VERDICT: A genuinely exceptional opening week for a brand-new account. The LinkedIn comment velocity is the standout metric.\n\nGROWTH HEALTH: LinkedIn is the clear early leader — 332 followers with 9,211 impressions in Week 1 signals the algorithm is already surfacing content beyond your immediate network. Instagram at 110 is a slower start, which is typical; Reels are doing the right work. Substack at ~100 subscribers with a 55.67% open rate is above-benchmark and a strong foundation to build from.\n\nCONTENT PERFORMANCE: The \"84% of vegans quit\" text post is the defining piece of the week — 41 comments from a standing start is not a coincidence. The statistical provocation + collective \"we\" framing works because it implicates the reader without blaming them. This is the Allan Carr psychological reframe in social form and it should become the default LinkedIn formula. Instagram Reels accounted for 88.9% of total views — static content is essentially invisible right now.\n\nPUBLISHER SIGNALS: A 22% comment-to-follower ratio in Week 1 is the kind of engagement data that belongs in a pitch deck. At 332 followers, driving 73 comments means every post is punching well above its reach weight. Substack open rate at 55.67% is already above the 40% publisher credibility threshold — the job now is to grow the list while defending that rate.\n\nCOMMUNITY SIGNALS: 73 comments are substantive discussions, not emoji reactions — that's real community formation at day 7. Saves are low (6 on LinkedIn total), which is the only watch item: saves signal that people intend to return or use the content, and this needs to grow as posts become more utility-focused.\n\nSTEER FOR NEXT WEEK: (1) Post another statistical provocation text post on LinkedIn — this is your proven formula, use it again while testing variations on the framing. (2) On Instagram, lean exclusively into Reels for now; carousels are getting lost. (3) Saves are the metric to improve: experiment with ending posts with a specific takeaway or resource list that people want to save.", "linkedin": {"followers": 332, "newFollowers": 30, "profileViews": null, "impressions": 9211, "reactions": 56, "comments": 73, "reposts": 1, "saves": 6, "totalEngagements": 136, "engagementRate": 0.0148, "posts": [{"date": "2026-06-05", "hook": "84% of vegans quit within the first year. We blame willpower. We blame cravings. We blame social pressure...", "type": "Text", "pillar": "Psychology of Change", "reach": 3245, "likes": 28, "comments": 41, "reposts": 1, "saves": 2, "engagements": 72, "engRate": 0.0222}, {"date": "2026-06-07", "hook": "B Corp certification is being gamed. Here's what the data shows...", "type": "Carousel", "pillar": "Business with Purpose", "reach": 2180, "likes": 15, "comments": 18, "reposts": 0, "saves": 3, "engagements": 36, "engRate": 0.0165}, {"date": "2026-06-09", "hook": "MYTH: Plant-based food is always better for the planet. REALITY: It depends on 6 things most people never check.", "type": "Carousel", "pillar": "Reducing Harm in Practice", "reach": 2456, "likes": 13, "comments": 14, "reposts": 0, "saves": 1, "engagements": 28, "engRate": 0.0114}]}, "instagram": {"followers": 110, "newFollowers": null, "profileVisits": 346, "reach": 1448, "views": 2904, "interactions": 175, "externalLinkTaps": 5, "posts": [{"date": "2026-06-06", "hook": "Why 84% of vegans quit (and the psychology behind it)", "type": "Reel", "pillar": "Psychology of Change", "views": 1400, "reach": 890, "likes": 62, "comments": 14, "saves": 18, "shares": 9, "engRate": 0.073}, {"date": "2026-06-08", "hook": "The 6 questions to ask before buying 'sustainable' food", "type": "Reel", "pillar": "Reducing Harm in Practice", "views": 1182, "reach": 421, "likes": 38, "comments": 7, "saves": 11, "shares": 4, "engRate": 0.051}, {"date": "2026-06-10", "hook": "Myth vs Reality: B Corps and what they actually mean", "type": "Carousel", "pillar": "Business with Purpose", "views": 177, "reach": 137, "likes": 14, "comments": 3, "saves": 2, "shares": 1, "engRate": 0.022}]}, "substack": {"subscribers": 100, "newSubscribers": null, "openRate30d": 0.5567, "clickRate": null, "issues": [{"date": "2026-06-03", "title": "Why behaviour change is so hard (and what actually works)", "subtitle": "The psychology your doctor never taught you", "pillar": "Psychology of Change", "views": null, "openRate": null, "clickRate": null, "note": "Individual issue stats captured from Week 2 onwards"}]}}]};
+
+// ── State ──────────────────────────────────────────────────────────────────
+let DATA = null;
+let weekIdx = 0;
+let sortCol = 'date';
+let sortDir = 'desc';
+let allPosts = [];
+let charts = {};
+
+// ── Boot ───────────────────────────────────────────────────────────────────
+async function boot() {
+  try {
+    const r = await fetch('./data/analytics.json?v=' + Date.now());
+    if (!r.ok) throw new Error();
+    DATA = await r.json();
+  } catch(e) {
+    DATA = INLINE_DATA;
+  }
+  weekIdx = DATA.weeks.length - 1;
+  populateWeekSelect();
+  buildAllPosts();
+  render();
+}
+
+function populateWeekSelect() {
+  const sel = document.getElementById('week-select');
+  const wSel = document.getElementById('f-week');
+  sel.innerHTML = '';
+  wSel.innerHTML = '<option value="">All weeks</option>';
+  DATA.weeks.forEach((w, i) => {
+    const o = document.createElement('option');
+    o.value = i;
+    o.textContent = 'Week ending ' + w.weekLabel + (i === DATA.weeks.length-1 ? ' (latest)' : '');
+    sel.appendChild(o);
+    const o2 = document.createElement('option');
+    o2.value = w.weekLabel;
+    o2.textContent = w.weekLabel;
+    wSel.appendChild(o2);
+  });
+  sel.value = weekIdx;
+}
+
+function buildAllPosts() {
+  allPosts = [];
+  DATA.weeks.forEach(w => {
+    (w.linkedin.posts || []).forEach(p => allPosts.push({
+      ...p, platform: 'linkedin', weekLabel: w.weekLabel,
+      reach: p.reach,
+      engagements: p.engagements || 0,
+      saves: p.saves || 0,
+      comments: p.comments || 0
+    }));
+    (w.instagram.posts || []).forEach(p => allPosts.push({
+      ...p, platform: 'instagram', weekLabel: w.weekLabel,
+      hook: p.hook,
+      reach: p.reach || p.views,
+      engagements: (p.likes||0)+(p.comments||0)+(p.saves||0)+(p.shares||0),
+      saves: p.saves || 0,
+      comments: p.comments || 0
+    }));
+    (w.substack.issues || []).forEach(p => allPosts.push({
+      ...p, platform: 'substack', weekLabel: w.weekLabel,
+      hook: p.title,
+      reach: p.views,
+      engagements: null,
+      engRate: p.openRate,
+      saves: null,
+      comments: null
+    }));
+  });
+  allPosts.sort((a,b) => (b.date||'').localeCompare(a.date||''));
+}
+
+// ── Render ─────────────────────────────────────────────────────────────────
+function render() {
+  const w  = DATA.weeks[weekIdx];
+  const pw = weekIdx > 0 ? DATA.weeks[weekIdx-1] : null;
+
+  // Header meta
+  document.getElementById('last-updated').textContent = 'Last updated: ' + DATA.meta.lastUpdated;
+  const deadline = new Date('2026-12-01');
+  const weeksLeft = Math.max(0, Math.round((deadline - new Date()) / 604800000));
+  document.getElementById('hdr-weeks').textContent = weeksLeft;
+  document.getElementById('hdr-li').textContent = (w.linkedin.followers||0).toLocaleString();
+  document.getElementById('hdr-ss').textContent = w.substack.openRate30d ? (w.substack.openRate30d*100).toFixed(1)+'%' : '—';
+  document.getElementById('kpi-week-label').textContent = 'ending ' + w.weekLabel;
+
+  renderKPIs(w, pw);
+  renderSignals(w);
+  renderProgress(w);
+  renderCharts();
+  renderTable();
+  renderAnalysis();
+}
+
+// ── KPIs ───────────────────────────────────────────────────────────────────
+function delta(cur, prev, isPositive=true) {
+  if (prev == null || cur == null) return '<span class="kpi-delta flat">Baseline</span>';
+  const d = cur - prev;
+  if (d === 0) return '<span class="kpi-delta flat">—</span>';
+  const pct = prev !== 0 ? Math.abs((d/prev)*100).toFixed(1)+'%' : '';
+  const sign = d > 0 ? '+' : '-';
+  const cls = (d > 0) === isPositive ? 'up' : 'down';
+  return `<span class="kpi-delta ${cls}">${sign}${pct || Math.abs(d)}</span>`;
+}
+
+function renderKPIs(w, p) {
+  const g = document.getElementById('kpi-grid');
+  const liEng = w.linkedin.engagementRate;
+  const igEngAvg = w.instagram.posts?.length
+    ? (w.instagram.posts.reduce((s,x)=>s+(x.engRate||0),0)/w.instagram.posts.length)
+    : null;
+
+  const cards = [
+    { cls:'li', label:'LinkedIn Followers',   value:(w.linkedin.followers||0).toLocaleString(),   delta: delta(w.linkedin.followers, p?.linkedin.followers), note: w.linkedin.newFollowers ? '+'+w.linkedin.newFollowers+' this week' : '' },
+    { cls:'li', label:'LinkedIn Impressions', value:(w.linkedin.impressions||0).toLocaleString(),  delta: delta(w.linkedin.impressions, p?.linkedin.impressions), note: '' },
+    { cls:'ig', label:'Instagram Followers',  value:(w.instagram.followers||0).toLocaleString(),   delta: delta(w.instagram.followers, p?.instagram.followers), note: '' },
+    { cls:'ig', label:'Instagram Reach',      value:(w.instagram.reach||0).toLocaleString(),       delta: delta(w.instagram.reach, p?.instagram.reach), note: w.instagram.views ? (w.instagram.views||0).toLocaleString()+' total views' : '' },
+    { cls:'ss', label:'Substack Subscribers', value:(w.substack.subscribers||0).toLocaleString(),  delta: delta(w.substack.subscribers, p?.substack.subscribers), note: '' },
+    { cls:'ss', label:'Substack Open Rate',   value: w.substack.openRate30d ? (w.substack.openRate30d*100).toFixed(1)+'%' : '—', delta: delta(w.substack.openRate30d, p?.substack.openRate30d), note: '30-day' },
+  ];
+
+  g.innerHTML = cards.map(c => `
+    <div class="kpi ${c.cls}">
+      <div class="kpi-label">${c.label}</div>
+      <div class="kpi-value">${c.value}</div>
+      <div>${c.delta}</div>
+      ${c.note ? `<div class="kpi-note">${c.note}</div>` : ''}
+    </div>`).join('');
+}
+
+// ── Signals ────────────────────────────────────────────────────────────────
+function renderSignals(w) {
+  const commentRatio = w.linkedin.followers
+    ? ((w.linkedin.comments||0)/w.linkedin.followers*100).toFixed(1)+'%'
+    : '—';
+  const openRate = w.substack.openRate30d ? (w.substack.openRate30d*100).toFixed(1)+'%' : '—';
+  const openBadge = w.substack.openRate30d >= 0.40 ? '<span class="signal-badge">Above target</span>' : '<span class="signal-badge warn">Below 40% target</span>';
+  const crossReach = ((w.linkedin.impressions||0)+(w.instagram.reach||0)).toLocaleString();
+
+  document.getElementById('pub-signals').innerHTML = `
+    <div class="signal-row"><span class="signal-label">LinkedIn impressions</span><span class="signal-value">${(w.linkedin.impressions||0).toLocaleString()}</span></div>
+    <div class="signal-row"><span class="signal-label">Substack open rate</span><span class="signal-value">${openRate}${openBadge}</span></div>
+    <div class="signal-row"><span class="signal-label">Cross-platform reach</span><span class="signal-value">${crossReach}</span></div>
+    <div class="signal-row"><span class="signal-label">Comment-to-follower ratio</span><span class="signal-value">${commentRatio}</span></div>
+  `;
+
+  const igSaves    = (w.instagram.posts||[]).reduce((s,p)=>s+(p.saves||0),0);
+  const igComments = (w.instagram.posts||[]).reduce((s,p)=>s+(p.comments||0),0);
+  const totalSaves = (w.linkedin.saves||0) + igSaves;
+
+  document.getElementById('com-signals').innerHTML = `
+    <div class="signal-row"><span class="signal-label">LinkedIn comments</span><span class="signal-value">${w.linkedin.comments||0}</span></div>
+    <div class="signal-row"><span class="signal-label">Total saves (LinkedIn + Instagram)</span><span class="signal-value">${totalSaves}</span></div>
+    <div class="signal-row"><span class="signal-label">Instagram comments</span><span class="signal-value">${igComments}</span></div>
+    <div class="signal-row"><span class="signal-label">Instagram → Substack link taps</span><span class="signal-value">${w.instagram.externalLinkTaps||0}</span></div>
+  `;
+}
+
+// ── Progress ───────────────────────────────────────────────────────────────
+function renderProgress(w) {
+  const t = DATA.meta.targets;
+  function card(label, current, target, cls, fmt) {
+    const pct = Math.min(100, (current/target)*100);
+    const fCur = fmt ? fmt(current) : current.toLocaleString();
+    const fTgt = fmt ? fmt(target)  : target.toLocaleString();
+    return `<div class="progress-card">
+      <h4>${label}</h4>
+      <div class="progress-numbers">
+        <span class="progress-current">${fCur}</span>
+        <span class="progress-target">/ ${fTgt} target</span>
+      </div>
+      <div class="progress-track"><div class="progress-fill ${cls}" style="width:${pct.toFixed(1)}%"></div></div>
+      <div class="progress-pct">${pct.toFixed(1)}% of goal</div>
+    </div>`;
+  }
+  document.getElementById('progress-grid').innerHTML =
+    card('Substack Subscribers', w.substack.subscribers||0, t.substackSubscribers, 'ss') +
+    card('Substack Open Rate',   (w.substack.openRate30d||0)*100, t.substackOpenRate*100, 'ss', v=>v.toFixed(1)+'%') +
+    card('LinkedIn Followers',   w.linkedin.followers||0,   t.linkedinFollowers, 'li') +
+    card('Instagram Followers',  w.instagram.followers||0,  t.instagramFollowers, 'ig');
+}
+
+// ── Charts ─────────────────────────────────────────────────────────────────
+const BASE_CHART_OPTIONS = {
+  responsive: true,
+  maintainAspectRatio: true,
+  interaction: { mode: 'index', intersect: false },
+  plugins: {
+    legend: { position: 'bottom', labels: { boxWidth: 10, padding: 14, font: { size: 11, family: 'Inter' }, usePointStyle: true } }
+  },
+  scales: {
+    x: { grid: { display: false }, ticks: { font: { size: 11 }, color: '#9AA3AD' } },
+    y: { grid: { color: '#EEF1F6', drawBorder: false }, ticks: { font: { size: 11 }, color: '#9AA3AD' } }
+  }
+};
+
+function renderCharts() {
+  const labels = DATA.weeks.map(w => w.weekLabel);
+  Object.values(charts).forEach(c => c && c.destroy());
+  charts = {};
+
+  // Growth
+  charts.growth = new Chart(document.getElementById('chart-growth'), {
+    type: 'line',
+    data: { labels, datasets: [
+      { label: 'LinkedIn',  data: DATA.weeks.map(w=>w.linkedin.followers),   borderColor: '#0A66C2', backgroundColor: 'rgba(10,102,194,0.07)', tension: 0.35, pointRadius: 5, pointHoverRadius: 7, borderWidth: 2 },
+      { label: 'Instagram', data: DATA.weeks.map(w=>w.instagram.followers),  borderColor: '#C13584', backgroundColor: 'rgba(193,53,132,0.07)',  tension: 0.35, pointRadius: 5, pointHoverRadius: 7, borderWidth: 2 },
+      { label: 'Substack',  data: DATA.weeks.map(w=>w.substack.subscribers), borderColor: '#E85D1A', backgroundColor: 'rgba(232,93,26,0.07)',   tension: 0.35, pointRadius: 5, pointHoverRadius: 7, borderWidth: 2 },
+    ]},
+    options: BASE_CHART_OPTIONS
+  });
+
+  // Engagement rate
+  charts.eng = new Chart(document.getElementById('chart-eng'), {
+    type: 'line',
+    data: { labels, datasets: [
+      { label: 'LinkedIn Eng Rate',  data: DATA.weeks.map(w=>w.linkedin.engagementRate ? +(w.linkedin.engagementRate*100).toFixed(2) : null), borderColor: '#0A66C2', backgroundColor: 'rgba(10,102,194,0.07)', tension: 0.35, pointRadius: 5, borderWidth: 2 },
+      { label: 'Instagram Avg Rate', data: DATA.weeks.map(w => {
+        const posts = w.instagram.posts||[];
+        if (!posts.length) return null;
+        return +(posts.reduce((s,p)=>s+(p.engRate||0),0)/posts.length*100).toFixed(2);
+      }), borderColor: '#C13584', backgroundColor: 'rgba(193,53,132,0.07)', tension: 0.35, pointRadius: 5, borderWidth: 2 },
+    ]},
+    options: { ...BASE_CHART_OPTIONS, scales: { ...BASE_CHART_OPTIONS.scales,
+      y: { ...BASE_CHART_OPTIONS.scales.y, ticks: { ...BASE_CHART_OPTIONS.scales.y.ticks, callback: v => v+'%' } }
+    }}
+  });
+
+  // Reach
+  charts.reach = new Chart(document.getElementById('chart-reach'), {
+    type: 'bar',
+    data: { labels, datasets: [
+      { label: 'LinkedIn Impressions', data: DATA.weeks.map(w=>w.linkedin.impressions||0), backgroundColor: 'rgba(10,102,194,0.75)', borderRadius: 4, borderSkipped: false },
+      { label: 'Instagram Reach',      data: DATA.weeks.map(w=>w.instagram.reach||0),      backgroundColor: 'rgba(193,53,132,0.75)', borderRadius: 4, borderSkipped: false },
+    ]},
+    options: BASE_CHART_OPTIONS
+  });
+
+  // Pillar performance (current week)
+  const week = DATA.weeks[weekIdx];
+  const pillars = ['Psychology of Change','Business with Purpose','Reducing Harm in Practice','The Book Journey'];
+  const pillarData = {};
+  pillars.forEach(p => pillarData[p] = { sum: 0, count: 0 });
+  [...(week.linkedin.posts||[]), ...(week.instagram.posts||[])].forEach(p => {
+    if (pillarData[p.pillar]) {
+      const eng = p.engagements || ((p.likes||0)+(p.comments||0)+(p.saves||0)+(p.shares||0));
+      pillarData[p.pillar].sum += eng;
+      pillarData[p.pillar].count++;
+    }
+  });
+  charts.pillar = new Chart(document.getElementById('chart-pillar'), {
+    type: 'bar',
+    data: {
+      labels: ['Psychology', 'Business', 'Reducing Harm', 'Book Journey'],
+      datasets: [{ label: 'Avg engagements/post',
+        data: pillars.map(p => pillarData[p].count ? Math.round(pillarData[p].sum/pillarData[p].count) : 0),
+        backgroundColor: ['rgba(28,43,58,0.82)','rgba(46,74,107,0.82)','rgba(74,127,165,0.82)','rgba(201,169,110,0.82)'],
+        borderRadius: 4, borderSkipped: false
+      }]
+    },
+    options: { ...BASE_CHART_OPTIONS, plugins: { ...BASE_CHART_OPTIONS.plugins, legend: { display: false } } }
+  });
+}
+
+// ── Table ──────────────────────────────────────────────────────────────────
+function renderTable() {
+  const search   = document.getElementById('search').value.toLowerCase();
+  const platform = document.getElementById('f-platform').value;
+  const pillar   = document.getElementById('f-pillar').value;
+  const type     = document.getElementById('f-type').value;
+  const wLabel   = document.getElementById('f-week').value;
+
+  let rows = allPosts.filter(p => {
+    const text = (p.hook || p.title || '').toLowerCase();
+    if (search && !text.includes(search)) return false;
+    if (platform && p.platform !== platform) return false;
+    if (pillar && p.pillar !== pillar) return false;
+    if (type && p.type !== type) return false;
+    if (wLabel && p.weekLabel !== wLabel) return false;
+    return true;
+  });
+
+  rows.sort((a, b) => {
+    let av = a[sortCol], bv = b[sortCol];
+    if (typeof av === 'string' || typeof bv === 'string') {
+      av = (av||'').toString(); bv = (bv||'').toString();
+      return sortDir === 'asc' ? av.localeCompare(bv) : bv.localeCompare(av);
+    }
+    av = av ?? -Infinity; bv = bv ?? -Infinity;
+    return sortDir === 'asc' ? av-bv : bv-av;
+  });
+
+  const tbody = document.getElementById('posts-tbody');
+  if (!rows.length) {
+    tbody.innerHTML = `<tr><td colspan="10" class="no-data">No posts match your filters.</td></tr>`;
+    document.getElementById('table-footer').textContent = '0 posts';
+    return;
+  }
+
+  tbody.innerHTML = rows.map(p => {
+    const hook = p.hook || p.title || '—';
+    const badgeCls = { linkedin: 'badge-li', instagram: 'badge-ig', substack: 'badge-ss' }[p.platform];
+    const platform = p.platform === 'linkedin' ? 'LinkedIn' : p.platform === 'instagram' ? 'Instagram' : 'Substack';
+
+    let rateStr = '—', rateCls = '';
+    if (p.platform === 'substack' && p.engRate != null) {
+      rateStr = (p.engRate*100).toFixed(1)+'% open';
+    } else if (p.engRate != null) {
+      rateStr = (p.engRate*100).toFixed(2)+'%';
+      rateCls = p.engRate >= 0.06 ? 'great' : p.engRate >= 0.03 ? 'good' : p.engRate >= 0.015 ? 'ok' : 'low';
+    }
+
+    const n = v => v != null ? `<span class="num">${typeof v === 'number' ? v.toLocaleString() : v}</span>` : '<span class="null-val">—</span>';
+
+    return `<tr>
+      <td class="num">${p.date||'—'}</td>
+      <td><span class="badge ${badgeCls}">${platform}</span></td>
+      <td><div class="hook-cell" title="${hook.replace(/"/g,'&quot;')}">${hook}</div></td>
+      <td>${p.type||'—'}</td>
+      <td><span class="badge-pillar">${(p.pillar||'—').replace(' of Change','').replace(' with Purpose','').replace(' in Practice','')}</span></td>
+      <td>${n(p.reach)}</td>
+      <td>${n(p.engagements)}</td>
+      <td><span class="eng-rate ${rateCls}">${rateStr}</span></td>
+      <td>${n(p.saves)}</td>
+      <td>${n(p.comments)}</td>
+    </tr>`;
+  }).join('');
+
+  document.getElementById('table-footer').textContent = rows.length + ' post' + (rows.length===1?'':'s');
+}
+
+// ── Analysis ───────────────────────────────────────────────────────────────
+function renderAnalysis() {
+  const container = document.getElementById('analysis-list');
+  container.innerHTML = [...DATA.weeks].reverse().map((w, i) => `
+    <div class="analysis-card">
+      <div class="analysis-head" onclick="toggleAnalysis(this)">
+        <span class="analysis-week-label">Week ending ${w.weekLabel}</span>
+        <span class="analysis-toggle ${i===0?'open':''}">▾</span>
+      </div>
+      <div class="analysis-body ${i===0?'':'hidden'}">
+        <div class="analysis-text">${w.insight || 'Analysis not yet available.'}</div>
+      </div>
+    </div>`).join('');
+}
+
+function toggleAnalysis(head) {
+  const body   = head.nextElementSibling;
+  const toggle = head.querySelector('.analysis-toggle');
+  const isOpen = !body.classList.contains('hidden');
+  body.classList.toggle('hidden', isOpen);
+  toggle.classList.toggle('open', !isOpen);
+}
+
+// ── Sort ───────────────────────────────────────────────────────────────────
+document.querySelectorAll('thead th[data-col]').forEach(th => {
+  th.addEventListener('click', () => {
+    const col = th.dataset.col;
+    if (sortCol === col) sortDir = sortDir==='asc'?'desc':'asc';
+    else { sortCol = col; sortDir = 'desc'; }
+    document.querySelectorAll('thead th').forEach(t => t.classList.remove('sort-asc','sort-desc'));
+    th.classList.add(sortDir==='asc'?'sort-asc':'sort-desc');
+    renderTable();
+  });
+});
+
+// ── Filter listeners ───────────────────────────────────────────────────────
+['search','f-platform','f-pillar','f-type','f-week'].forEach(id =>
+  document.getElementById(id).addEventListener('input', renderTable));
+
+document.getElementById('week-select').addEventListener('change', e => {
+  weekIdx = parseInt(e.target.value);
+  render();
+});
+
+boot();
+</script>
+</body>
+</html>

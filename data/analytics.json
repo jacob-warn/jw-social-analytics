@@ -1,0 +1,141 @@
+{
+  "meta": {
+    "lastUpdated": "2026-06-11",
+    "site": "jacobwarn.substack.com",
+    "targets": {
+      "substackSubscribers": 5000,
+      "substackOpenRate": 0.40,
+      "linkedinFollowers": 10000,
+      "instagramFollowers": 10000,
+      "deadline": "2026-12-01"
+    }
+  },
+  "weeks": [
+    {
+      "weekEnding": "2026-06-11",
+      "weekLabel": "11 Jun '26",
+      "insight": "VERDICT: A genuinely exceptional opening week for a brand-new account. The LinkedIn comment velocity is the standout metric.\n\nGROWTH HEALTH: LinkedIn is the clear early leader — 332 followers with 9,211 impressions in Week 1 signals the algorithm is already surfacing content beyond your immediate network. Instagram at 110 is a slower start, which is typical; Reels are doing the right work. Substack at ~100 subscribers with a 55.67% open rate is above-benchmark and a strong foundation to build from.\n\nCONTENT PERFORMANCE: The \"84% of vegans quit\" text post is the defining piece of the week — 41 comments from a standing start is not a coincidence. The statistical provocation + collective \"we\" framing works because it implicates the reader without blaming them. This is the Allan Carr psychological reframe in social form and it should become the default LinkedIn formula. Instagram Reels accounted for 88.9% of total views — static content is essentially invisible right now.\n\nPUBLISHER SIGNALS: A 22% comment-to-follower ratio in Week 1 is the kind of engagement data that belongs in a pitch deck. At 332 followers, driving 73 comments means every post is punching well above its reach weight. Substack open rate at 55.67% is already above the 40% publisher credibility threshold — the job now is to grow the list while defending that rate.\n\nCOMMUNITY SIGNALS: 73 comments are substantive discussions, not emoji reactions — that's real community formation at day 7. Saves are low (6 on LinkedIn total), which is the only watch item: saves signal that people intend to return or use the content, and this needs to grow as posts become more utility-focused.\n\nSTEER FOR NEXT WEEK: (1) Post another statistical provocation text post on LinkedIn — this is your proven formula, use it again while testing variations on the framing. (2) On Instagram, lean exclusively into Reels for now; carousels are getting lost. (3) Saves are the metric to improve: experiment with ending posts with a specific takeaway or resource list that people want to save.",
+      "linkedin": {
+        "followers": 332,
+        "newFollowers": 30,
+        "profileViews": null,
+        "impressions": 9211,
+        "reactions": 56,
+        "comments": 73,
+        "reposts": 1,
+        "saves": 6,
+        "totalEngagements": 136,
+        "engagementRate": 0.0148,
+        "posts": [
+          {
+            "date": "2026-06-05",
+            "hook": "84% of vegans quit within the first year. We blame willpower. We blame cravings. We blame social pressure...",
+            "type": "Text",
+            "pillar": "Psychology of Change",
+            "reach": 3245,
+            "likes": 28,
+            "comments": 41,
+            "reposts": 1,
+            "saves": 2,
+            "engagements": 72,
+            "engRate": 0.0222
+          },
+          {
+            "date": "2026-06-07",
+            "hook": "B Corp certification is being gamed. Here's what the data shows...",
+            "type": "Carousel",
+            "pillar": "Business with Purpose",
+            "reach": 2180,
+            "likes": 15,
+            "comments": 18,
+            "reposts": 0,
+            "saves": 3,
+            "engagements": 36,
+            "engRate": 0.0165
+          },
+          {
+            "date": "2026-06-09",
+            "hook": "MYTH: Plant-based food is always better for the planet. REALITY: It depends on 6 things most people never check.",
+            "type": "Carousel",
+            "pillar": "Reducing Harm in Practice",
+            "reach": 2456,
+            "likes": 13,
+            "comments": 14,
+            "reposts": 0,
+            "saves": 1,
+            "engagements": 28,
+            "engRate": 0.0114
+          }
+        ]
+      },
+      "instagram": {
+        "followers": 110,
+        "newFollowers": null,
+        "profileVisits": 346,
+        "reach": 1448,
+        "views": 2904,
+        "interactions": 175,
+        "externalLinkTaps": 5,
+        "posts": [
+          {
+            "date": "2026-06-06",
+            "hook": "Why 84% of vegans quit (and the psychology behind it)",
+            "type": "Reel",
+            "pillar": "Psychology of Change",
+            "views": 1400,
+            "reach": 890,
+            "likes": 62,
+            "comments": 14,
+            "saves": 18,
+            "shares": 9,
+            "engRate": 0.0730
+          },
+          {
+            "date": "2026-06-08",
+            "hook": "The 6 questions to ask before buying 'sustainable' food",
+            "type": "Reel",
+            "pillar": "Reducing Harm in Practice",
+            "views": 1182,
+            "reach": 421,
+            "likes": 38,
+            "comments": 7,
+            "saves": 11,
+            "shares": 4,
+            "engRate": 0.0510
+          },
+          {
+            "date": "2026-06-10",
+            "hook": "Myth vs Reality: B Corps and what they actually mean",
+            "type": "Carousel",
+            "pillar": "Business with Purpose",
+            "views": 177,
+            "reach": 137,
+            "likes": 14,
+            "comments": 3,
+            "saves": 2,
+            "shares": 1,
+            "engRate": 0.0220
+          }
+        ]
+      },
+      "substack": {
+        "subscribers": 100,
+        "newSubscribers": null,
+        "openRate30d": 0.5567,
+        "clickRate": null,
+        "issues": [
+          {
+            "date": "2026-06-03",
+            "title": "Why behaviour change is so hard (and what actually works)",
+            "subtitle": "The psychology your doctor never taught you",
+            "pillar": "Psychology of Change",
+            "views": null,
+            "openRate": null,
+            "clickRate": null,
+            "note": "Individual issue stats captured from Week 2 onwards"
+          }
+        ]
+      }
+    }
+  ]
+}
