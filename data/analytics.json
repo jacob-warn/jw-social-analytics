@@ -1,1 +1,522 @@
-{"meta":{"lastUpdated":"2026-06-22","site":"jacobwarn.substack.com","targets":{"substackSubscribers":5000,"substackOpenRate":0.4,"linkedinFollowers":10000,"instagramFollowers":10000,"deadline":"2026-12-01"}},"weeks":[{"weekEnding":"2026-06-11","weekLabel":"11 Jun '26","insight":"VERDICT: A genuinely exceptional opening week for a brand-new account. The LinkedIn comment velocity is the standout metric.\n\nGROWTH HEALTH: LinkedIn is the clear early leader â 332 followers with 9,211 impressions in Week 1 signals the algorithm is already surfacing content beyond your immediate network. Instagram at 110 is a slower start, which is typical; Reels are doing the right work. Substack at ~100 subscribers with a 55.67% open rate is above-benchmark and a strong foundation to build from.\n\nCONTENT PERFORMANCE: The \"84% of vegans quit\" text post is the defining piece of the week â 41 comments from a standing start is not a coincidence. The statistical provocation + collective \"we\" framing works because it implicates the reader without blaming them. This is the Allan Carr psychological reframe in social form and it should become the default LinkedIn formula. Instagram Reels accounted for 88.9% of total views â static content is essentially invisible right now.\n\nPUBLISHER SIGNALS: A 22% comment-to-follower ratio in Week 1 is the kind of engagement data that belongs in a pitch deck. At 332 followers, driving 73 comments means every post is punching well above its reach weight. Substack open rate at 55.67% is already above the 40% publisher credibility threshold â the job now is to grow the list while defending that rate.\n\nCOMMUNITY SIGNALS: 73 comments are substantive discussions, not emoji reactions â that's real community formation at day 7. Saves are low (6 on LinkedIn total), which is the only watch item: saves signal that people intend to return or use the content, and this needs to grow as posts become more utility-focused.\n\nSTEER FOR NEXT WEEK: (1) Post another statistical provocation text post on LinkedIn â this is your proven formula, use it again while testing variations on the framing. (2) On Instagram, lean exclusively into Reels for now; carousels are getting lost. (3) Saves are the metric to improve: experiment with ending posts with a specific takeaway or resource list that people want to save.","linkedin":{"followers":332,"newFollowers":30,"profileViews":null,"impressions":9211,"reactions":56,"comments":73,"reposts":1,"saves":6,"totalEngagements":136,"engagementRate":0.0148,"posts":[{"date":"2026-06-05","hook":"84% of vegans quit within the first year. We blame willpower. We blame cravings. We blame social pressure...","type":"Text","pillar":"Psychology of Change","reach":3245,"likes":28,"comments":41,"reposts":1,"saves":2,"engagements":72,"engRate":0.0222},{"date":"2026-06-07","hook":"B Corp certification is being gamed. Here's what the data shows...","type":"Carousel","pillar":"Business with Purpose","reach":2180,"likes":15,"comments":18,"reposts":0,"saves":3,"engagements":36,"engRate":0.0165},{"date":"2026-06-09","hook":"MYTH: Plant-based food is always better for the planet. REALITY: It depends on 6 things most people never check.","type":"Carousel","pillar":"Reducing Harm in Practice","reach":2456,"likes":13,"comments":14,"reposts":0,"saves":1,"engagements":28,"engRate":0.0114}]},"instagram":{"followers":110,"newFollowers":null,"profileVisits":346,"reach":1448,"views":2904,"interactions":175,"externalLinkTaps":5,"posts":[{"date":"2026-06-06","hook":"Why 84% of vegans quit (and the psychology behind it)","type":"Reel","pillar":"Psychology of Change","views":1400,"reach":890,"likes":62,"comments":14,"saves":18,"shares":9,"engRate":0.073},{"date":"2026-06-08","hook":"The 6 questions to ask before buying 'sustainable' food","type":"Reel","pillar":"Reducing Harm in Practice","views":1182,"reach":421,"likes":38,"comments":7,"saves":11,"shares":4,"engRate":0.051},{"date":"2026-06-10","hook":"Myth vs Reality: B Corps and what they actually mean","type":"Carousel","pillar":"Business with Purpose","views":177,"reach":137,"likes":14,"comments":3,"saves":2,"shares":1,"engRate":0.022}]},"substack":{"subscribers":100,"newSubscribers":null,"openRate30d":0.5567,"clickRate":null,"issues":[{"date":"2026-06-03","title":"Why behaviour change is so hard (and what actually works)","subtitle":"The psychology your doctor never taught you","pillar":"Psychology of Change","views":null,"openRate":null,"clickRate":null,"note":"Individual issue stats captured from Week 2 onwards"}]}},{"weekEnding":"2026-06-15","weekLabel":"15 Jun '26","insight":"VERDICT: Instagram breaks out, LinkedIn holds depth â a strong Week 2 signal across all three platforms.\n\nGROWTH HEALTH: Instagram is accelerating fastest â 5,778 views and 3,618 accounts reached vs 2,904 views last week, driven by the Greece Reel (3k views, 116 interactions from Jun 12). LinkedIn dropped in raw impressions (4,512 vs 9,211) but this is expected: Week 1 was a first-post spike; Week 2's floor is more representative. Substack steady at 56.66% open rate with 102 subscribers (+2).\n\nCONTENT PERFORMANCE: The Greece Reel is the standout piece of the week across ALL platforms â 3k Instagram views, 116 interactions, plus a matching carousel on LinkedIn (592 impressions) and Substack piece (142 views, 8.93% engagement). Cross-platform consistency on a single strong topic is exactly the publisher-pitch pattern to build. The psychology-of-change Reel from Jun 9 ('The explanation is that...') continued pulling 1.4k views â suggesting the algorithm is still surfacing it. LinkedIn engagement rate dropped (61 total vs 138 last week) but the audience is smaller relative to last week's spike posts.\n\nPUBLISHER SIGNALS: LinkedIn reached 338 followers (+6), steady but not explosive â the next text-post with a statistical provocation hook should drive another follower spike. Instagram external link taps doubled from 5 to 12 â people are following the funnel to Substack. Substack 30d open rate stable at 56.66%, well above the 40% pitch threshold.\n\nCOMMUNITY SIGNALS: Instagram interactions jumped from 175 to 293 (+67%), with 180 accounts engaged. Saves on LinkedIn at 3 (down from 6 last week) â still low, still the watch item. The Greece content is generating genuine engagement across formats, suggesting it resonates with the audience beyond the algorithm.\n\nSTEER FOR NEXT WEEK: (1) Post the Wednesday Substack on time â the Greece topic has momentum and the newsletter will compound it. (2) LinkedIn needs a fresh statistical provocation text post â the proven formula hasn't been repeated since Week 1's standout. (3) Test ending a LinkedIn post with a direct question or resource save-prompt to push that saves metric up.","linkedin":{"followers":338,"newFollowers":6,"profileViews":null,"impressions":4512,"membersReached":2387,"reactions":42,"comments":15,"reposts":0,"saves":3,"sends":1,"totalEngagements":61,"engagementRate":0.0135,"posts":[{"date":"2026-06-11","hook":"10 years ago, a million refugees arrived on Greece's shores. The world was watching.","type":"Carousel","pillar":"Reducing Harm in Practice","impressions":592,"reactions":16,"comments":3,"reposts":2,"saves":0,"engagements":21,"engRate":0.0355,"note":"New post this week. Most engagement in 7-day window came from older Week 1 posts."}],"weekNote":"4,512 total impressions in 7-day window includes tail from Week 1 posts plus new Greece content. -31% vs prior 7 days â Week 1 was an algorithm spike."},"instagram":{"followers":126,"newFollowers":16,"profileVisits":297,"reach":3618,"views":5778,"interactions":293,"accountsEngaged":180,"externalLinkTaps":12,"reelsPctViews":94.8,"posts":[{"date":"2026-06-12","hook":"Greece will be bad this summer. Here's why nobody is talking about it.","type":"Reel","pillar":"Reducing Harm in Practice","views":3000,"interactions":116,"note":"Top content this week by both views and interactions. Cross-platform topic (matches LinkedIn + Substack)."},{"date":"2026-06-09","hook":"The explanation is that... [psychology of change reel]","type":"Reel","pillar":"Psychology of Change","views":1400,"interactions":78,"note":"Still generating views from last week â algorithm is surfacing it."},{"date":"2026-06-10","hook":"Most people think the refugee crisis in Greece is over. It isn't.","type":"Carousel","pillar":"Reducing Harm in Practice","views":273,"interactions":8,"note":"Carousel underperforms vs Reels â consistent with Week 1 pattern."}]},"substack":{"subscribers":102,"newSubscribers":2,"openRate30d":0.5666,"clickRate":null,"issues":[{"date":"2026-06-10","title":"This summer will be bad in Greece","subtitle":"Ten years after the refugee crisis, conditions have worsened â and our attention has moved on","pillar":"Reducing Harm in Practice","views":142,"openRate":null,"engagementRate":0.0893,"note":"Substack engagement rate 8.93% (highest of all posts). No new issue published this week â text due Wed 18 Jun."}]}},{"weekEnding":"2026-06-22","weekLabel":"22 Jun '26","insight":"VERDICT: Instagram surges +19 followers in a single week while LinkedIn engagement craters â volume without depth is the Week 3 story.\n\nGROWTH HEALTH: Instagram is the fastest-moving platform by far â 145 followers (+19, +15%) is the biggest weekly follower spike of any platform since launch, driven by eight posts and the 'What Aliens Think About Cows' Reel (393 views). LinkedIn growth continues at a crawl (+3 to 341). Substack shows its first net subscriber decline (100 vs 102, -2) â likely churn among older imported subscribers who are not engaging.\n\nCONTENT PERFORMANCE: 'What Aliens Think About Cows' (Instagram Reel, Jun 16) is the standout â witty, shareable, 393 views with 16 interactions and a 1-follow. On LinkedIn, the Covid/food-systems text post (571 impressions) and meat-industry-funding post (521 impressions) had decent reach but only 4 and 3 engagements respectively â a sharp contrast with the 41-comment Week 1 benchmark. The Gaza fundraiser carousel on Instagram punched above its format weight: 16 interactions despite being a static carousel, because the content was emotionally urgent. Substack open rates slipped to 44.9% and 46.46% for the two new issues, well below the Greece issue's 57.58% peak.\n\nPUBLISHER SIGNALS: Substack 30d open rate at 52.45%, down from 56.66% in W2. Still above the 40% credibility threshold but the direction is wrong â two consecutive issues with sub-47% open rates will pull the 30d average down further. Subscriber base has stalled at 100. LinkedIn impression floor is settling around 2,000-4,500/week, which is modest. Instagram growth rate is the one genuine positive publisher signal this week.\n\nCOMMUNITY SIGNALS: LinkedIn saves hit zero for the first time â no post drove enough utility or resonance to save. Comments fell from 15 (W2) to 4 (W3). Instagram saves were just 1 across the whole week. The depth metrics are the weakest they have been across all three weeks. The content this week reached, but did not land deeply.\n\nSTEER FOR NEXT WEEK: (1) LinkedIn urgently needs a statistical provocation text post â the format has been absent for two weeks and engagement depth has cratered as a direct result. Draft: something with a counter-intuitive statistic in the first line, 'We blame X. We blame Y. We blame Z.' structure, collective framing. (2) Substack subject lines need work â the two new issues likely lost opens at the subject line stage. Test a question or number-led subject. (3) Instagram saves are stuck at near-zero â end at least one post per week with an explicit 'save this' prompt or make a resource-style carousel designed to be saved.","linkedin":{"followers":341,"newFollowers":3,"profileViews":null,"impressions":2098,"membersReached":912,"reactions":16,"comments":4,"reposts":0,"saves":0,"sends":0,"totalEngagements":20,"engagementRate":0.0095,"posts":[{"date":"2026-06-18","hook":"7 million people died of Covid-19. The most likely cause? Our food system.","type":"Text","pillar":"Reducing Harm in Practice","impressions":571,"membersReached":298,"reactions":1,"comments":3,"reposts":0,"saves":0,"engagements":4,"engRate":0.007},{"date":"2026-06-16","hook":"Every researcher who took meat industry money reached the same conclusion. Not most of them. Every single one.","type":"Text","pillar":"Business with Purpose","impressions":521,"membersReached":335,"reactions":2,"comments":1,"reposts":0,"saves":0,"engagements":3,"engRate":0.0058},{"date":"2026-06-15","hook":"I lived and worked in Greece for six years during the refugee crisis. Most people think things have improved.","type":"Document/Video","pillar":"Reducing Harm in Practice","impressions":182,"membersReached":238,"reactions":19,"comments":1,"reposts":2,"saves":0,"engagements":22,"engRate":0.121,"note":"Lifetime impressions 495 (182 within 7d window). 169 video views lifetime. Top engagement depth post this week."}]},"instagram":{"followers":145,"newFollowers":19,"profileVisits":142,"reach":741,"views":2147,"interactions":85,"accountsEngaged":46,"externalLinkTaps":3,"reelsPctViews":66.5,"posts":[{"date":"2026-06-16","hook":"What aliens think about cows","type":"Reel","pillar":"Psychology of Change","views":393,"reach":240,"likes":11,"comments":1,"saves":1,"shares":0,"interactions":16,"engRate":0.0407},{"date":"2026-06-18","hook":"TODAY, THANKS TO YOU, WE'VE RAISED â¬30K. 20 community-led kitchens across Gaza.","type":"Carousel","pillar":"Reducing Harm in Practice","views":369,"reach":207,"likes":12,"comments":1,"saves":0,"shares":0,"interactions":16,"note":"Fundraiser/impact post. 92.3% of interactions from non-followers â viral via cause not audience."},{"date":"2026-06-19","hook":"Basically we're sleeping","type":"Reel","pillar":"Psychology of Change","views":229,"reach":165,"likes":6,"comments":0,"saves":0,"shares":0,"interactions":6},{"date":"2026-06-16","hook":"Do you eat cow?","type":"Reel","pillar":"Psychology of Change","views":220},{"date":"2026-06-21","hook":"...is absurd (quote post)","type":"Single Image","pillar":"Psychology of Change","views":187}]},"substack":{"subscribers":100,"newSubscribers":-2,"openRate30d":0.5245,"clickRate":null,"issues":[{"date":"2026-06-17","title":"What Covid, HIV and Ebola Have in Common","subtitle":"The link between pandemics and our food choices","pillar":"Reducing Harm in Practice","views":74,"openRate":0.449,"engagementRate":0.0682,"clickRate":null},{"date":"2026-06-19","title":"You love animals. Just not all of them.","subtitle":"The selective empathy that underpins how we treat animals","pillar":"Psychology of Change","views":68,"openRate":0.4646,"engagementRate":0.0435,"clickRate":null}]}}]}
+{
+  "meta": {
+    "lastUpdated": "2026-06-29",
+    "site": "jacobwarn.substack.com",
+    "targets": {
+      "substackSubscribers": 5000,
+      "substackOpenRate": 0.4,
+      "linkedinFollowers": 10000,
+      "instagramFollowers": 10000,
+      "deadline": "2026-12-01"
+    }
+  },
+  "weeks": [
+    {
+      "weekEnding": "2026-06-11",
+      "weekLabel": "11 Jun '26",
+      "insight": "VERDICT: A genuinely exceptional opening week for a brand-new account. The LinkedIn comment velocity is the standout metric.\n\nGROWTH HEALTH: LinkedIn is the clear early leader \u2014 332 followers with 9,211 impressions in Week 1 signals the algorithm is already surfacing content beyond your immediate network. Instagram at 110 is a slower start, which is typical; Reels are doing the right work. Substack at ~100 subscribers with a 55.67% open rate is above-benchmark and a strong foundation to build from.\n\nCONTENT PERFORMANCE: The \"84% of vegans quit\" text post is the defining piece of the week \u2014 41 comments from a standing start is not a coincidence. The statistical provocation + collective \"we\" framing works because it implicates the reader without blaming them. This is the Allan Carr psychological reframe in social form and it should become the default LinkedIn formula. Instagram Reels accounted for 88.9% of total views \u2014 static content is essentially invisible right now.\n\nPUBLISHER SIGNALS: A 22% comment-to-follower ratio in Week 1 is the kind of engagement data that belongs in a pitch deck. At 332 followers, driving 73 comments means every post is punching well above its reach weight. Substack open rate at 55.67% is already above the 40% publisher credibility threshold \u2014 the job now is to grow the list while defending that rate.\n\nCOMMUNITY SIGNALS: 73 comments are substantive discussions, not emoji reactions \u2014 that's real community formation at day 7. Saves are low (6 on LinkedIn total), which is the only watch item: saves signal that people intend to return or use the content, and this needs to grow as posts become more utility-focused.\n\nSTEER FOR NEXT WEEK: (1) Post another statistical provocation text post on LinkedIn \u2014 this is your proven formula, use it again while testing variations on the framing. (2) On Instagram, lean exclusively into Reels for now; carousels are getting lost. (3) Saves are the metric to improve: experiment with ending posts with a specific takeaway or resource list that people want to save.",
+      "linkedin": {
+        "followers": 332,
+        "newFollowers": 30,
+        "profileViews": null,
+        "impressions": 9211,
+        "reactions": 56,
+        "comments": 73,
+        "reposts": 1,
+        "saves": 6,
+        "totalEngagements": 136,
+        "engagementRate": 0.0148,
+        "posts": [
+          {
+            "date": "2026-06-05",
+            "hook": "84% of vegans quit within the first year. We blame willpower. We blame cravings. We blame social pressure...",
+            "type": "Text",
+            "pillar": "Psychology of Change",
+            "reach": 3245,
+            "likes": 28,
+            "comments": 41,
+            "reposts": 1,
+            "saves": 2,
+            "engagements": 72,
+            "engRate": 0.0222
+          },
+          {
+            "date": "2026-06-07",
+            "hook": "B Corp certification is being gamed. Here's what the data shows...",
+            "type": "Carousel",
+            "pillar": "Business with Purpose",
+            "reach": 2180,
+            "likes": 15,
+            "comments": 18,
+            "reposts": 0,
+            "saves": 3,
+            "engagements": 36,
+            "engRate": 0.0165
+          },
+          {
+            "date": "2026-06-09",
+            "hook": "MYTH: Plant-based food is always better for the planet. REALITY: It depends on 6 things most people never check.",
+            "type": "Carousel",
+            "pillar": "Reducing Harm in Practice",
+            "reach": 2456,
+            "likes": 13,
+            "comments": 14,
+            "reposts": 0,
+            "saves": 1,
+            "engagements": 28,
+            "engRate": 0.0114
+          }
+        ]
+      },
+      "instagram": {
+        "followers": 110,
+        "newFollowers": null,
+        "profileVisits": 346,
+        "reach": 1448,
+        "views": 2904,
+        "interactions": 175,
+        "externalLinkTaps": 5,
+        "posts": [
+          {
+            "date": "2026-06-06",
+            "hook": "Why 84% of vegans quit (and the psychology behind it)",
+            "type": "Reel",
+            "pillar": "Psychology of Change",
+            "views": 1400,
+            "reach": 890,
+            "likes": 62,
+            "comments": 14,
+            "saves": 18,
+            "shares": 9,
+            "engRate": 0.073
+          },
+          {
+            "date": "2026-06-08",
+            "hook": "The 6 questions to ask before buying 'sustainable' food",
+            "type": "Reel",
+            "pillar": "Reducing Harm in Practice",
+            "views": 1182,
+            "reach": 421,
+            "likes": 38,
+            "comments": 7,
+            "saves": 11,
+            "shares": 4,
+            "engRate": 0.051
+          },
+          {
+            "date": "2026-06-10",
+            "hook": "Myth vs Reality: B Corps and what they actually mean",
+            "type": "Carousel",
+            "pillar": "Business with Purpose",
+            "views": 177,
+            "reach": 137,
+            "likes": 14,
+            "comments": 3,
+            "saves": 2,
+            "shares": 1,
+            "engRate": 0.022
+          }
+        ]
+      },
+      "substack": {
+        "subscribers": 100,
+        "newSubscribers": null,
+        "openRate30d": 0.5567,
+        "clickRate": null,
+        "issues": [
+          {
+            "date": "2026-06-03",
+            "title": "Why behaviour change is so hard (and what actually works)",
+            "subtitle": "The psychology your doctor never taught you",
+            "pillar": "Psychology of Change",
+            "views": null,
+            "openRate": null,
+            "clickRate": null,
+            "note": "Individual issue stats captured from Week 2 onwards"
+          }
+        ]
+      }
+    },
+    {
+      "weekEnding": "2026-06-15",
+      "weekLabel": "15 Jun '26",
+      "insight": "VERDICT: Instagram breaks out, LinkedIn holds depth \u2014 a strong Week 2 signal across all three platforms.\n\nGROWTH HEALTH: Instagram is accelerating fastest \u2014 5,778 views and 3,618 accounts reached vs 2,904 views last week, driven by the Greece Reel (3k views, 116 interactions from Jun 12). LinkedIn dropped in raw impressions (4,512 vs 9,211) but this is expected: Week 1 was a first-post spike; Week 2's floor is more representative. Substack steady at 56.66% open rate with 102 subscribers (+2).\n\nCONTENT PERFORMANCE: The Greece Reel is the standout piece of the week across ALL platforms \u2014 3k Instagram views, 116 interactions, plus a matching carousel on LinkedIn (592 impressions) and Substack piece (142 views, 8.93% engagement). Cross-platform consistency on a single strong topic is exactly the publisher-pitch pattern to build. The psychology-of-change Reel from Jun 9 ('The explanation is that...') continued pulling 1.4k views \u2014 suggesting the algorithm is still surfacing it. LinkedIn engagement rate dropped (61 total vs 138 last week) but the audience is smaller relative to last week's spike posts.\n\nPUBLISHER SIGNALS: LinkedIn reached 338 followers (+6), steady but not explosive \u2014 the next text-post with a statistical provocation hook should drive another follower spike. Instagram external link taps doubled from 5 to 12 \u2014 people are following the funnel to Substack. Substack 30d open rate stable at 56.66%, well above the 40% pitch threshold.\n\nCOMMUNITY SIGNALS: Instagram interactions jumped from 175 to 293 (+67%), with 180 accounts engaged. Saves on LinkedIn at 3 (down from 6 last week) \u2014 still low, still the watch item. The Greece content is generating genuine engagement across formats, suggesting it resonates with the audience beyond the algorithm.\n\nSTEER FOR NEXT WEEK: (1) Post the Wednesday Substack on time \u2014 the Greece topic has momentum and the newsletter will compound it. (2) LinkedIn needs a fresh statistical provocation text post \u2014 the proven formula hasn't been repeated since Week 1's standout. (3) Test ending a LinkedIn post with a direct question or resource save-prompt to push that saves metric up.",
+      "linkedin": {
+        "followers": 338,
+        "newFollowers": 6,
+        "profileViews": null,
+        "impressions": 4512,
+        "membersReached": 2387,
+        "reactions": 42,
+        "comments": 15,
+        "reposts": 0,
+        "saves": 3,
+        "sends": 1,
+        "totalEngagements": 61,
+        "engagementRate": 0.0135,
+        "posts": [
+          {
+            "date": "2026-06-11",
+            "hook": "10 years ago, a million refugees arrived on Greece's shores. The world was watching.",
+            "type": "Carousel",
+            "pillar": "Reducing Harm in Practice",
+            "impressions": 592,
+            "reactions": 16,
+            "comments": 3,
+            "reposts": 2,
+            "saves": 0,
+            "engagements": 21,
+            "engRate": 0.0355,
+            "note": "New post this week. Most engagement in 7-day window came from older Week 1 posts."
+          }
+        ],
+        "weekNote": "4,512 total impressions in 7-day window includes tail from Week 1 posts plus new Greece content. -31% vs prior 7 days \u2014 Week 1 was an algorithm spike."
+      },
+      "instagram": {
+        "followers": 126,
+        "newFollowers": 16,
+        "profileVisits": 297,
+        "reach": 3618,
+        "views": 5778,
+        "interactions": 293,
+        "accountsEngaged": 180,
+        "externalLinkTaps": 12,
+        "reelsPctViews": 94.8,
+        "posts": [
+          {
+            "date": "2026-06-12",
+            "hook": "Greece will be bad this summer. Here's why nobody is talking about it.",
+            "type": "Reel",
+            "pillar": "Reducing Harm in Practice",
+            "views": 3000,
+            "interactions": 116,
+            "note": "Top content this week by both views and interactions. Cross-platform topic (matches LinkedIn + Substack)."
+          },
+          {
+            "date": "2026-06-09",
+            "hook": "The explanation is that... [psychology of change reel]",
+            "type": "Reel",
+            "pillar": "Psychology of Change",
+            "views": 1400,
+            "interactions": 78,
+            "note": "Still generating views from last week \u2014 algorithm is surfacing it."
+          },
+          {
+            "date": "2026-06-10",
+            "hook": "Most people think the refugee crisis in Greece is over. It isn't.",
+            "type": "Carousel",
+            "pillar": "Reducing Harm in Practice",
+            "views": 273,
+            "interactions": 8,
+            "note": "Carousel underperforms vs Reels \u2014 consistent with Week 1 pattern."
+          }
+        ]
+      },
+      "substack": {
+        "subscribers": 102,
+        "newSubscribers": 2,
+        "openRate30d": 0.5666,
+        "clickRate": null,
+        "issues": [
+          {
+            "date": "2026-06-10",
+            "title": "This summer will be bad in Greece",
+            "subtitle": "Ten years after the refugee crisis, conditions have worsened \u2014 and our attention has moved on",
+            "pillar": "Reducing Harm in Practice",
+            "views": 142,
+            "openRate": null,
+            "engagementRate": 0.0893,
+            "note": "Substack engagement rate 8.93% (highest of all posts). No new issue published this week \u2014 next due Wed 18 Jun."
+          }
+        ]
+      }
+    },
+    {
+      "weekEnding": "2026-06-22",
+      "weekLabel": "22 Jun '26",
+      "insight": "VERDICT: Instagram surges +19 followers in a single week while LinkedIn engagement craters \u2014 volume without depth is the Week 3 story.\n\nGROWTH HEALTH: Instagram is the fastest-moving platform by far \u2014 145 followers (+19, +15%) is the biggest weekly follower spike of any platform since launch, driven by eight posts and the 'What Aliens Think About Cows' Reel (393 views). LinkedIn growth continues at a crawl (+3 to 341). Substack shows its first net subscriber decline (100 vs 102, -2) \u2014 likely churn among older imported subscribers who are not engaging.\n\nCONTENT PERFORMANCE: 'What Aliens Think About Cows' (Instagram Reel, Jun 16) is the standout \u2014 witty, shareable, 393 views with 16 interactions and a 1-follow. On LinkedIn, the Covid/food-systems text post (571 impressions) and meat-industry-funding post (521 impressions) had decent reach but only 4 and 3 engagements respectively \u2014 a sharp contrast with the 41-comment Week 1 benchmark. The Gaza fundraiser carousel on Instagram punched above its format weight: 16 interactions despite being a static carousel, because the content was emotionally urgent. Substack open rates slipped to 44.9% and 46.46% for the two new issues, well below the Greece issue's 57.58% peak.\n\nPUBLISHER SIGNALS: Substack 30d open rate at 52.45%, down from 56.66% in W2. Still above the 40% credibility threshold but the direction is wrong \u2014 two consecutive issues with sub-47% open rates will pull the 30d average down further. Subscriber base has stalled at 100. LinkedIn impression floor is settling around 2,000-4,500/week, which is modest. Instagram growth rate is the one genuine positive publisher signal this week.\n\nCOMMUNITY SIGNALS: LinkedIn saves hit zero for the first time \u2014 no post drove enough utility or resonance to save. Comments fell from 15 (W2) to 4 (W3). Instagram saves were just 1 across the whole week. The depth metrics are the weakest they have been across all three weeks. The content this week reached, but did not land deeply.\n\nSTEER FOR NEXT WEEK: (1) LinkedIn urgently needs a statistical provocation text post \u2014 the format has been absent for two weeks and engagement depth has cratered as a direct result. Draft: something with a counter-intuitive statistic in the first line, 'We blame X. We blame Y. We blame Z.' structure, collective framing. (2) Substack subject lines need work \u2014 the two new issues likely lost opens at the subject line stage. Test a question or number-led subject. (3) Instagram saves are stuck at near-zero \u2014 end at least one post per week with an explicit 'save this' prompt or make a resource-style carousel designed to be saved.",
+      "linkedin": {
+        "followers": 341,
+        "newFollowers": 3,
+        "profileViews": null,
+        "impressions": 2098,
+        "membersReached": 912,
+        "reactions": 16,
+        "comments": 4,
+        "reposts": 0,
+        "saves": 0,
+        "sends": 0,
+        "totalEngagements": 20,
+        "engagementRate": 0.0095,
+        "posts": [
+          {
+            "date": "2026-06-18",
+            "hook": "7 million people died of Covid-19. The most likely cause? Our food system.",
+            "type": "Text",
+            "pillar": "Reducing Harm in Practice",
+            "impressions": 571,
+            "membersReached": 298,
+            "reactions": 1,
+            "comments": 3,
+            "reposts": 0,
+            "saves": 0,
+            "engagements": 4,
+            "engRate": 0.007
+          },
+          {
+            "date": "2026-06-16",
+            "hook": "Every researcher who took meat industry money reached the same conclusion. Not most of them. Every single one.",
+            "type": "Text",
+            "pillar": "Business with Purpose",
+            "impressions": 521,
+            "membersReached": 335,
+            "reactions": 2,
+            "comments": 1,
+            "reposts": 0,
+            "saves": 0,
+            "engagements": 3,
+            "engRate": 0.0058
+          },
+          {
+            "date": "2026-06-15",
+            "hook": "I lived and worked in Greece for six years during the refugee crisis. Most people think things have improved.",
+            "type": "Document/Video",
+            "pillar": "Reducing Harm in Practice",
+            "impressions": 182,
+            "membersReached": 238,
+            "reactions": 19,
+            "comments": 1,
+            "reposts": 2,
+            "saves": 0,
+            "engagements": 22,
+            "note": "Lifetime impressions 495 (182 within 7d window). 169 video views lifetime. Top engagement depth post this week."
+          }
+        ]
+      },
+      "instagram": {
+        "followers": 145,
+        "newFollowers": 19,
+        "profileVisits": 142,
+        "reach": 741,
+        "views": 2147,
+        "interactions": 85,
+        "accountsEngaged": 46,
+        "externalLinkTaps": 3,
+        "reelsPctViews": 66.5,
+        "posts": [
+          {
+            "date": "2026-06-16",
+            "hook": "What aliens think about cows",
+            "type": "Reel",
+            "pillar": "Psychology of Change",
+            "views": 393,
+            "reach": 240,
+            "likes": 11,
+            "comments": 1,
+            "saves": 1,
+            "shares": 0,
+            "interactions": 16,
+            "engRate": 0.0407
+          },
+          {
+            "date": "2026-06-18",
+            "hook": "TODAY, THANKS TO YOU, WE'VE RAISED \u20ac30K. 20 community-led kitchens across Gaza.",
+            "type": "Carousel",
+            "pillar": "Reducing Harm in Practice",
+            "views": 369,
+            "reach": 207,
+            "likes": 12,
+            "comments": 1,
+            "saves": 0,
+            "shares": 0,
+            "interactions": 16,
+            "note": "Fundraiser/impact post. 92.3% of interactions from non-followers \u2014 viral via cause not audience."
+          },
+          {
+            "date": "2026-06-19",
+            "hook": "Basically we're sleeping",
+            "type": "Reel",
+            "pillar": "Psychology of Change",
+            "views": 229,
+            "reach": 165,
+            "likes": 6,
+            "comments": 0,
+            "saves": 0,
+            "shares": 0,
+            "interactions": 6
+          },
+          {
+            "date": "2026-06-16",
+            "hook": "Do you eat cow?",
+            "type": "Reel",
+            "pillar": "Psychology of Change",
+            "views": 220
+          },
+          {
+            "date": "2026-06-21",
+            "hook": "...is absurd (quote post)",
+            "type": "Single Image",
+            "pillar": "Psychology of Change",
+            "views": 187
+          }
+        ]
+      },
+      "substack": {
+        "subscribers": 100,
+        "newSubscribers": -2,
+        "openRate30d": 0.5245,
+        "clickRate": null,
+        "issues": [
+          {
+            "date": "2026-06-17",
+            "title": "What Covid, HIV and Ebola Have in Common",
+            "subtitle": "The link between pandemics and our food choices",
+            "pillar": "Reducing Harm in Practice",
+            "views": 74,
+            "openRate": 0.449,
+            "engagementRate": 0.0682,
+            "clickRate": null
+          },
+          {
+            "date": "2026-06-19",
+            "title": "You love animals. Just not all of them.",
+            "subtitle": "The selective empathy that underpins how we treat animals",
+            "pillar": "Psychology of Change",
+            "views": 68,
+            "openRate": 0.4646,
+            "engagementRate": 0.0435,
+            "clickRate": null
+          }
+        ]
+      }
+    },
+    {
+      "weekEnding": "2026-06-29",
+      "weekLabel": "29 Jun '26",
+      "insight": "VERDICT: Instagram ignites with its biggest single post to date while LinkedIn falls silent \u2014 a tale of two platforms, and a missing Substack week.\n\nGROWTH HEALTH: Instagram is accelerating. 160 followers (+15, same as Week 3's record spike), 208 interactions (+145% vs W3's 85), and a single Reel on June 26 pulling 956 views and 131 interactions \u2014 a 13.7% engagement rate that is exceptional by any standard. LinkedIn is struggling: 629 impressions (-70% vs W3) with zero comments for the first time in four weeks. Substack at 101 subscribers (+1) and a recovering 30d open rate (55.1%, up from 52.45%) \u2014 but no new issue this week, which is a critical cadence break.\n\nCONTENT PERFORMANCE: The June 26 Instagram Reel is the standout post of all four weeks \u2014 956 views and 131 interactions from a talking-head format in a 160-follower account is exceptional. This is the account's best single-post performance to date and signals the format is clicking. The three LinkedIn posts this week (Greece/moral attention, animal lovers cognitive dissonance, Gaza donation) each had reasonable hooks but none drove comments \u2014 the collective 'we' framing and statistical provocation that drove 41 comments in Week 1 has been absent for four weeks now. No Substack post this week means the funnel had no fresh top-of-the-list entry to capitalise on the Instagram momentum.\n\nPUBLISHER SIGNALS: The 30d Substack open rate is recovering (55.1%) which is encouraging \u2014 but with no post this week, that rate will face pressure unless Jacob publishes on time next Wednesday. Instagram follower count at 160 with a 13.7% engagement Reel is a genuine publisher signal: this is a person whose audience actually watches. LinkedIn is the weak signal: impressions have fallen four weeks running from 9,211 \u2192 4,512 \u2192 2,098 \u2192 629. The statistical provocation text post formula must be deployed this week \u2014 not next.\n\nCOMMUNITY SIGNALS: Instagram interactions surged to 208 (+145%) \u2014 largely driven by one Reel, but that depth is real. Accounts engaged jumped to 147 (from 46 in W3). LinkedIn saves: 0 again. LinkedIn comments: 0 \u2014 the worst community signal of any week. Substack external link taps from Instagram: only 1 (down from 3 in W3) \u2014 the cadence miss on Substack means the funnel had nothing to send traffic to.\n\nSTEER FOR NEXT WEEK: (1) LinkedIn: post a statistical provocation text post \u2014 this is now urgent. The four-week drought has decimated comments from 73 \u2192 15 \u2192 4 \u2192 0. Use the proven formula: counter-intuitive stat in line 1, 'We blame X. We blame Y. We blame Z.' structure. (2) Substack: publish Wednesday no matter what \u2014 the 30d open rate is recovering but a second consecutive missed week will erase the progress. (3) Instagram: replicate the June 26 Reel format \u2014 talking head, short, provocative. This is the account's best-performing format by a wide margin and you now have proof it works.",
+      "linkedin": {
+        "followers": 348,
+        "newFollowers": 7,
+        "profileViews": null,
+        "impressions": 629,
+        "membersReached": 239,
+        "reactions": 6,
+        "comments": 0,
+        "reposts": 1,
+        "saves": 0,
+        "sends": 0,
+        "totalEngagements": 7,
+        "engagementRate": 0.011,
+        "posts": [
+          {
+            "date": "2026-06-23",
+            "hook": "10 years ago, a million refugees arrived on Greece's shores. The world was watching.",
+            "type": "Text",
+            "pillar": "Reducing Harm in Practice",
+            "impressions": 184,
+            "reactions": 1,
+            "comments": 1,
+            "reposts": 0,
+            "saves": 0,
+            "engagements": 2,
+            "engRate": 0.011,
+            "note": "Moral attention post. Greece still relevant but no algorithm spike."
+          },
+          {
+            "date": "2026-06-24",
+            "hook": "Most of us consider ourselves animal lovers. We also pay for the slaughter of billions of animals every year.",
+            "type": "Text",
+            "pillar": "Psychology of Change",
+            "impressions": 159,
+            "reactions": 4,
+            "comments": 0,
+            "reposts": 1,
+            "saves": 0,
+            "engagements": 5,
+            "engRate": 0.031,
+            "note": "Good hook but no comments \u2014 collective framing present but no stat provocation."
+          },
+          {
+            "date": "2026-06-25",
+            "hook": "Wanna get your week off to a positive start? A small donation to the Gaza Food Project...",
+            "type": "Text",
+            "pillar": "Reducing Harm in Practice",
+            "impressions": 57,
+            "reactions": 1,
+            "comments": 0,
+            "reposts": 0,
+            "saves": 0,
+            "engagements": 1,
+            "engRate": 0.018,
+            "note": "Donation ask \u2014 low engagement typical for fundraising posts without warm-up."
+          }
+        ]
+      },
+      "instagram": {
+        "followers": 160,
+        "newFollowers": 15,
+        "profileVisits": 85,
+        "reach": 964,
+        "views": 2003,
+        "interactions": 208,
+        "accountsEngaged": 147,
+        "externalLinkTaps": 1,
+        "reelsPctViews": 73.6,
+        "reelsPctInteractions": 90.4,
+        "posts": [
+          {
+            "date": "2026-06-26",
+            "hook": "Talking head Reel (FACE / content TBC)",
+            "type": "Reel",
+            "pillar": "Psychology of Change",
+            "views": 956,
+            "interactions": 131,
+            "engRate": 0.137,
+            "note": "Best single post of all four weeks. 13.7% engagement rate. Algorithm is surfacing this beyond followers."
+          },
+          {
+            "date": "2026-06-25",
+            "hook": "Substack/content creation Reel",
+            "type": "Reel",
+            "pillar": "Book Journey",
+            "views": 330,
+            "interactions": 30,
+            "engRate": 0.091
+          },
+          {
+            "date": "2026-06-25",
+            "hook": "Dairy is a feminist issue",
+            "type": "Story",
+            "pillar": "Reducing Harm in Practice",
+            "views": 105,
+            "interactions": 3
+          },
+          {
+            "date": "2026-06-25",
+            "hook": "Keep the donations coming! Gaza Food Project update",
+            "type": "Story",
+            "pillar": "Reducing Harm in Practice",
+            "views": 91,
+            "interactions": 2
+          },
+          {
+            "date": "2026-06-25",
+            "hook": "Don't like the heat? Switch off the meat.",
+            "type": "Single Image",
+            "pillar": "Reducing Harm in Practice",
+            "views": 82,
+            "interactions": 1
+          }
+        ]
+      },
+      "substack": {
+        "subscribers": 101,
+        "newSubscribers": 1,
+        "openRate30d": 0.551,
+        "clickRate": null,
+        "issues": [],
+        "weekNote": "No new issue published this week (Jun 23-29). Cadence break \u2014 Wednesday post missed. Most recent issue: 'You love animals. Just not all of them.' Jun 19 (53.54% open rate, 85 views). 30d rate recovering from 52.45% to 55.1% but second consecutive underwhelming open rate week."
+      }
+    }
+  ]
+}
