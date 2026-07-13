@@ -1,6 +1,6 @@
 {
   "meta": {
-    "lastUpdated": "2026-07-08",
+    "lastUpdated": "2026-07-13",
     "site": "jacobwarn.substack.com",
     "targets": {
       "substackSubscribers": 5000,
@@ -643,6 +643,67 @@
           }
         ],
         "weekNote": "Cadence resumed after Week 4 miss (published Wed 1 Jul). 30d open rate slipped to 51.65% from 55.1%. Subscribers 103 (+2)."
+      }
+    },
+    {
+      "weekEnding": "2026-07-13",
+      "weekLabel": "13 Jul '26",
+      "insight": "VERDICT: Instagram bounces back from its wobble — the talking-head Reel format works again — and LinkedIn climbs off the floor for a second straight week, but Substack breaks cadence again and its open rate slips below 50% for the first time.\n\nGROWTH HEALTH: Instagram is re-accelerating and last week's deceleration now looks like noise, not a trend — followers +6 (170, up from +4), accounts reached +17% (656), interactions +34% (71), accounts engaged +21% (40). LinkedIn also turned: impressions rose a second consecutive week to 885 (+65% vs prior 7 days per dashboard, 501 → 885) and followers +6 (358). Substack is the laggard — subscribers flat at 103 for a third week and the 30-day open rate down to 48.99%.\n\nCONTENT PERFORMANCE: The 8 Jul talking-head Reel (464 views, 32 interactions) is the week's hero and the best Instagram post since Week 4's 956-view standout — direct confirmation that the steer to return to face-to-camera Reels was right. Filter/novelty formats are out; talking-head is the validated engine, and Reels drove 94% of views and 95.8% of interactions. On LinkedIn, comments returned to 1 after two straight zeros (73 → 15 → 4 → 0 → 0 → 1), but 18 of 19 engagements were reactions — the statistical-provocation text post is now absent for a sixth week and remains the missing lever for real discussion.\n\nPUBLISHER SIGNALS: Mixed. Instagram engagement re-accelerating is the strongest positive — this is an audience that actually watches, and the format is now proven twice over. But Substack is the real concern for the December pitch: cadence broke again after just one week of restoration (no Wednesday 8 Jul post), the 30-day open rate slipped under 50% for the first time (48.99%, still above the 40% credibility line), and the list has sat at ~103 for three weeks against a 5,000 target. List growth is the single biggest gap to the pitch and it is not moving.\n\nCOMMUNITY SIGNALS: Instagram depth recovered — 40 accounts engaged (up from 33) and 71 interactions (up from 53), reversing last week's collapse. LinkedIn saves are still 0, but the single returning comment is a faint pulse after two silent weeks. Substack generated no conversation this week because there was no issue to open.\n\nSTEER FOR NEXT WEEK: (1) Substack is now the priority — publish Wednesday 15 Jul with no exceptions; two cadence breaks in three weeks will erode the one signal a publisher weights most heavily (a reliable weekly engine), and test a number-led or question-led subject line to pull the open rate back above 50%. (2) Instagram: keep shipping talking-head Reels — two data points now confirm the format; aim for two this week while the momentum is back. (3) LinkedIn: deploy the statistical-provocation text post — six weeks dormant, comments barely alive; counter-intuitive stat in line one, 'We blame X. We blame Y. We blame Z.' structure. Red flag: Substack list stagnation combined with cadence instability — the funnel has nowhere to land.",
+      "linkedin": {
+        "followers": 358,
+        "newFollowers": 6,
+        "profileViews": null,
+        "impressions": 885,
+        "membersReached": null,
+        "reactions": 18,
+        "comments": 1,
+        "reposts": 0,
+        "saves": 0,
+        "sends": 0,
+        "totalEngagements": 19,
+        "engagementRate": 0.0215,
+        "posts": [],
+        "weekNote": "885 impressions, +65% vs prior 7 days per LinkedIn dashboard — second straight week-on-week rise (501 → 885). 19 social engagements (18R/1C/0Re/0S/0Send). Comments returned to 1 after two consecutive zeros. Followers 358 (+6). Statistical-provocation text post absent for a 6th week. Per-post breakdown not captured — LinkedIn top-posts module failed to load."
+      },
+      "instagram": {
+        "followers": 170,
+        "newFollowers": 6,
+        "profileVisits": 55,
+        "reach": 656,
+        "views": 1128,
+        "interactions": 71,
+        "accountsEngaged": 40,
+        "externalLinkTaps": null,
+        "reelsPctViews": 94.0,
+        "reelsPctInteractions": 95.8,
+        "posts": [
+          {
+            "date": "2026-07-08",
+            "hook": "Talking-head Reel (8 Jul)",
+            "type": "Reel",
+            "pillar": "Psychology of Change",
+            "views": 464,
+            "interactions": 32,
+            "note": "Top post of the week. Best Instagram post since Week 4's 956-view talking-head standout — return to face-to-camera format validated."
+          },
+          {
+            "date": "2026-07-10",
+            "hook": "Reel (10 Jul, text-over-face)",
+            "type": "Reel",
+            "pillar": "Psychology of Change",
+            "views": 234,
+            "interactions": 18
+          }
+        ],
+        "weekNote": "Rebound across every account metric after last week's pullback: views 1,179 → 1,128 (-4%, essentially flat), reach 559 → 656 (+17%), interactions 53 → 71 (+34%), accounts engaged 33 → 40 (+21%). Follower growth re-accelerated to +6 from +4. Reels dominate: 94% of views, 95.8% of interactions."
+      },
+      "substack": {
+        "subscribers": 103,
+        "newSubscribers": 0,
+        "openRate30d": 0.4899,
+        "clickRate": null,
+        "issues": [],
+        "weekNote": "CADENCE BROKEN AGAIN — no Wednesday 8 Jul post, just one week after the Week 5 restoration. Most recent issue remains 'Stop Telling People Animals Suffer' (Jul 1). 30-day open rate slipped to 48.99% (from 51.65%), below 50% for the first time but still above the 40% pitch threshold. Subscribers flat at 103 (+0) for a third straight week."
       }
     }
   ]
