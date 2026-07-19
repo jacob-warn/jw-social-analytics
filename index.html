@@ -418,17 +418,17 @@
 
 <!-- Controls -->
 <div class="controls-bar">
-  <label>Week:</label>
+  <label>View:</label>
   <select id="week-select"></select>
   <div class="controls-sep"></div>
-  <span style="font-size:12px; color:var(--muted)">Posts table and signal panels reflect selected week · Charts always show all-time</span>
+  <span style="font-size:12px; color:var(--muted)">KPIs &amp; signal panels reflect the selected view · trend charts always show all-time</span>
 </div>
 
 <main class="main">
 
   <!-- KPIs -->
   <section class="section">
-    <div class="section-header">This Week <span id="kpi-week-label"></span></div>
+    <div class="section-header"><span id="kpi-section-title">This Week</span> <span id="kpi-week-label"></span></div>
     <div class="kpi-grid" id="kpi-grid"></div>
   </section>
 
@@ -470,7 +470,7 @@
         <canvas id="chart-reach"></canvas>
       </div>
       <div class="chart-card">
-        <h3>Content Pillar — Avg Engagements per Post</h3>
+        <h3>Content Pillar — Avg Engagements per Post (all-time)</h3>
         <canvas id="chart-pillar"></canvas>
       </div>
     </div>
@@ -545,6 +545,7 @@ const INLINE_DATA = {"meta":{"lastUpdated":"2026-07-13","site":"jacobwarn.substa
 // ── State ──────────────────────────────────────────────────────────────────
 let DATA = null;
 let weekIdx = 0;
+let allTime = false;
 let sortCol = 'date';
 let sortDir = 'desc';
 let allPosts = [];
@@ -569,6 +570,10 @@ function populateWeekSelect() {
   const sel = document.getElementById('week-select');
   const wSel = document.getElementById('f-week');
   sel.innerHTML = '';
+  const allOpt = document.createElement('option');
+  allOpt.value = 'all';
+  allOpt.textContent = 'All time (cumulative)';
+  sel.appendChild(allOpt);
   wSel.innerHTML = '<option value="">All weeks</option>';
   DATA.weeks.forEach((w, i) => {
     const o = document.createElement('option');
@@ -614,10 +619,52 @@ function buildAllPosts() {
   allPosts.sort((a,b) => (b.date||'').localeCompare(a.date||''));
 }
 
+// ── All-time aggregate ───────────────────────────────────────────────────────
+// Flow metrics (impressions, reach, engagements, comments…) are summed across
+// every week; stock metrics (followers, subscribers, open rate) take the latest
+// value, because summing a running total would be meaningless.
+function computeAllTime() {
+  const weeks = DATA.weeks;
+  const last = weeks[weeks.length - 1];
+  const sum = f => weeks.reduce((s, w) => s + (f(w) || 0), 0);
+
+  const li = {
+    followers: last.linkedin.followers,
+    newFollowers: sum(w => w.linkedin.newFollowers),
+    impressions: sum(w => w.linkedin.impressions),
+    reactions: sum(w => w.linkedin.reactions),
+    comments: sum(w => w.linkedin.comments),
+    reposts: sum(w => w.linkedin.reposts),
+    saves: sum(w => w.linkedin.saves),
+    totalEngagements: sum(w => w.linkedin.totalEngagements),
+    posts: weeks.flatMap(w => w.linkedin.posts || [])
+  };
+  li.engagementRate = li.impressions ? li.totalEngagements / li.impressions : null;
+
+  const ig = {
+    followers: last.instagram.followers,
+    newFollowers: sum(w => w.instagram.newFollowers),
+    reach: sum(w => w.instagram.reach),
+    views: sum(w => w.instagram.views),
+    interactions: sum(w => w.instagram.interactions),
+    profileVisits: sum(w => w.instagram.profileVisits),
+    externalLinkTaps: sum(w => w.instagram.externalLinkTaps),
+    posts: weeks.flatMap(w => w.instagram.posts || [])
+  };
+
+  const ss = {
+    subscribers: last.substack.subscribers,
+    openRate30d: last.substack.openRate30d,
+    issues: weeks.flatMap(w => w.substack.issues || [])
+  };
+
+  return { weekLabel: 'all time', linkedin: li, instagram: ig, substack: ss };
+}
+
 // ── Render ─────────────────────────────────────────────────────────────────
 function render() {
-  const w  = DATA.weeks[weekIdx];
-  const pw = weekIdx > 0 ? DATA.weeks[weekIdx-1] : null;
+  const w  = allTime ? computeAllTime() : DATA.weeks[weekIdx];
+  const pw = (!allTime && weekIdx > 0) ? DATA.weeks[weekIdx-1] : null;
 
   // Header meta
   document.getElementById('last-updated').textContent = 'Last updated: ' + DATA.meta.lastUpdated;
@@ -626,7 +673,10 @@ function render() {
   document.getElementById('hdr-weeks').textContent = weeksLeft;
   document.getElementById('hdr-li').textContent = (w.linkedin.followers||0).toLocaleString();
   document.getElementById('hdr-ss').textContent = w.substack.openRate30d ? (w.substack.openRate30d*100).toFixed(1)+'%' : '—';
-  document.getElementById('kpi-week-label').textContent = 'ending ' + w.weekLabel;
+  document.getElementById('kpi-section-title').textContent = allTime ? 'All Time' : 'This Week';
+  document.getElementById('kpi-week-label').textContent = allTime
+    ? '· cumulative across ' + DATA.weeks.length + ' weeks'
+    : 'ending ' + w.weekLabel;
 
   renderKPIs(w, pw);
   renderSignals(w);
@@ -654,7 +704,23 @@ function renderKPIs(w, p) {
     ? (w.instagram.posts.reduce((s,x)=>s+(x.engRate||0),0)/w.instagram.posts.length)
     : null;
 
-  const cards = [
+  // In all-time mode: stock metrics show "+N since launch"; flow metrics show a
+  // "cumulative" tag instead of a week-on-week delta.
+  const gained = n => n > 0 ? `<span class="kpi-delta up">+${n.toLocaleString()} since launch</span>`
+                    : n < 0 ? `<span class="kpi-delta down">${n.toLocaleString()} since launch</span>`
+                    : '<span class="kpi-delta flat">flat since launch</span>';
+  const cumTag = '<span class="kpi-delta flat">cumulative</span>';
+  const f0 = DATA.weeks[0];
+  const netGain = (cur, base) => (cur||0) - (base||0);
+
+  const cards = allTime ? [
+    { cls:'li', label:'LinkedIn Followers',        value:(w.linkedin.followers||0).toLocaleString(),   delta: gained(netGain(w.linkedin.followers, f0.linkedin.followers)), note: 'latest' },
+    { cls:'li', label:'LinkedIn Impressions',      value:(w.linkedin.impressions||0).toLocaleString(),  delta: cumTag, note: 'all weeks' },
+    { cls:'ig', label:'Instagram Followers',       value:(w.instagram.followers||0).toLocaleString(),   delta: gained(netGain(w.instagram.followers, f0.instagram.followers)), note: 'latest' },
+    { cls:'ig', label:'Instagram Reach',           value:(w.instagram.reach||0).toLocaleString(),       delta: cumTag, note: w.instagram.views ? (w.instagram.views||0).toLocaleString()+' total views' : 'all weeks' },
+    { cls:'ss', label:'Substack Subscribers',      value:(w.substack.subscribers||0).toLocaleString(),  delta: gained(netGain(w.substack.subscribers, f0.substack.subscribers)), note: 'latest' },
+    { cls:'ss', label:'Substack Open Rate',        value: w.substack.openRate30d ? (w.substack.openRate30d*100).toFixed(1)+'%' : '—', delta: '<span class="kpi-delta flat">latest 30-day</span>', note: 'current' },
+  ] : [
     { cls:'li', label:'LinkedIn Followers',   value:(w.linkedin.followers||0).toLocaleString(),   delta: delta(w.linkedin.followers, p?.linkedin.followers), note: w.linkedin.newFollowers ? '+'+w.linkedin.newFollowers+' this week' : '' },
     { cls:'li', label:'LinkedIn Impressions', value:(w.linkedin.impressions||0).toLocaleString(),  delta: delta(w.linkedin.impressions, p?.linkedin.impressions), note: '' },
     { cls:'ig', label:'Instagram Followers',  value:(w.instagram.followers||0).toLocaleString(),   delta: delta(w.instagram.followers, p?.instagram.followers), note: '' },
@@ -780,12 +846,12 @@ function renderCharts() {
     options: BASE_CHART_OPTIONS
   });
 
-  // Pillar performance (current week)
-  const week = DATA.weeks[weekIdx];
+  // Pillar performance (all weeks — this sits in the All-Time Trends section)
   const pillars = ['Psychology of Change','Business with Purpose','Reducing Harm in Practice','The Book Journey'];
   const pillarData = {};
   pillars.forEach(p => pillarData[p] = { sum: 0, count: 0 });
-  [...(week.linkedin.posts||[]), ...(week.instagram.posts||[])].forEach(p => {
+  const allPillarPosts = DATA.weeks.flatMap(w => [...(w.linkedin.posts||[]), ...(w.instagram.posts||[])]);
+  allPillarPosts.forEach(p => {
     if (pillarData[p.pillar]) {
       const eng = p.engagements || ((p.likes||0)+(p.comments||0)+(p.saves||0)+(p.shares||0));
       pillarData[p.pillar].sum += eng;
@@ -913,7 +979,12 @@ document.querySelectorAll('thead th[data-col]').forEach(th => {
   document.getElementById(id).addEventListener('input', renderTable));
 
 document.getElementById('week-select').addEventListener('change', e => {
-  weekIdx = parseInt(e.target.value);
+  if (e.target.value === 'all') {
+    allTime = true;
+  } else {
+    allTime = false;
+    weekIdx = parseInt(e.target.value);
+  }
   render();
 });
 
