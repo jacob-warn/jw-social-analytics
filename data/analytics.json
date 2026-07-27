@@ -1,6 +1,6 @@
 {
  "meta": {
-  "lastUpdated": "2026-07-20",
+  "lastUpdated": "2026-07-27",
   "site": "jacobwarn.substack.com",
   "targets": {
    "substackSubscribers": 5000,
@@ -790,6 +790,85 @@
     "clickRate": null,
     "issues": [],
     "weekNote": "No new issue (last remains 'Stop Telling People Animals Suffer', Jul 1) - second consecutive Wednesday missed (Jul 8, Jul 15). BUT subscribers grew +5 to 108 - first list growth after three flat weeks at 103 - with zero new content (new subs dated 14/15/18/20 Jul; likely Substack network/recommendations plus the standing IG bio link). 30-day open rate 47.47% (from 48.99%). The Jul 1 issue has kept accruing: now 102 views, 6.38% engagement, 47.47% open."
+   }
+  },
+  {
+   "weekEnding": "2026-07-27",
+   "weekLabel": "27 Jul '26",
+   "insight": "Three weeks quiet, and the open-rate slide finally stopped.\n\nThe involuntary experiment continued: no new Substack issue for three weeks now, no new Instagram feed post for two, and this was the quietest week on record. Instagram views fell to 307 (-37% on an already-low 486), reach to 102, interactions to just 10; LinkedIn drew 513 impressions and reached 181 members. Everything the account watches shrank. Yet the audience counts still ticked up on all three platforms - LinkedIn 368 (+2), Instagram 178 (+3), Substack 110 (+2). That's the second straight week of audience size and attention pulling in opposite directions, but with two weeks of near-zero input behind it the upward drift now looks less like a lag from recent posts and more like a genuine organic floor.\n\nThe most interesting number is the one that didn't move. The Substack 30-day open rate held at exactly 47.47%, flat on last week, ending a four-week slide (55.1 -> 51.65 -> 48.99 -> 47.47 -> 47.47). Last week the worry was that a list growing through passive discovery would keep diluting the open rate as unengaged subscribers piled in. This week that didn't happen: +2 subscribers and the rate held. One week isn't a reversal, but the decline stalling while the list still grows is the better of the two outcomes that were on the table - and it's the pair a publisher reads together.\n\nLinkedIn quietly ran a small natural experiment. Its one original this week - '62% of Americans are already willing to eat less meat... so let me be an optimist for a moment: the appetite is there' - was the first stat-anchored original in weeks. It uses the same raw ingredient as the launch post that drew 41 comments (a striking number up front) but frames it as optimism rather than blame. It got 1 engagement on 96 impressions. Not proof of anything, but a hint worth holding: the launch formula's pull may live in the 'we blame X, we blame Y' structure that implicates the reader, not simply in leading with a statistic. A positive stat gives people nothing to push against. It was otherwise a reactions-only week (6R/1C), and the curation lever that drove last week's record +8 followers wasn't repeated - follower growth duly settled back to +2.\n\nTwo things to watch. First, whenever the next Substack issue finally ships, watch what it does to the open rate: sending to a list that's been quiet for a month, part of it acquired passively, could either re-engage those readers or expose the dilution the flat rate is currently hiding. Second, Instagram is now the cleanest test running - two weeks coasting entirely on residual reach while followers keep creeping up. How long does that half-life last? The week the follower drift finally stalls will say how much of this growth was ever truly organic versus the fading echo of the June and early-July posts.",
+   "linkedin": {
+    "followers": 368,
+    "newFollowers": 2,
+    "profileViews": null,
+    "impressions": 513,
+    "membersReached": 181,
+    "reactions": 6,
+    "comments": 1,
+    "reposts": 0,
+    "saves": 0,
+    "sends": 0,
+    "totalEngagements": 7,
+    "engagementRate": 0.0137,
+    "posts": [
+     {
+      "date": null,
+      "hook": "A useful resource for anyone working on or considering starting up a #vegan business!",
+      "type": "Document (5 pages)",
+      "pillar": "Business with Purpose",
+      "impressions": 99,
+      "engagements": 2,
+      "note": "Top post of the week. A shared resource (Vegan Trademark Growth Guide)."
+     },
+     {
+      "date": null,
+      "hook": "62% of Americans are already willing to eat less meat. So let me be an optimist for a moment: the appetite is there!",
+      "type": "Text Post",
+      "pillar": "Psychology of Change",
+      "impressions": 96,
+      "engagements": 1,
+      "note": "First stat-anchored original in weeks - but framed as optimism, not the 'we blame X/Y/Z' provocation. Positive-stat framing did not spark conversation."
+     },
+     {
+      "date": null,
+      "hook": "The humble chickpea, now given superpowers.",
+      "type": "Repost / Curation",
+      "pillar": "Business with Purpose",
+      "impressions": 73,
+      "engagements": 0,
+      "note": "Curation of a NuCicer product launch. Reach without conversation."
+     }
+    ],
+    "weekNote": "Followers 368 (+2). Impressions 513 (-3% vs 530), 181 members reached (-35% vs 280). 7 social engagements (6R/1C/0Re/0S/0Send) - reactions-only bar one comment. Top-posts module loaded this week. The curation lever that drove last week's +8 was not repeated; follower growth fell back to +2."
+   },
+   "instagram": {
+    "followers": 178,
+    "newFollowers": 3,
+    "profileVisits": 24,
+    "reach": 102,
+    "views": 307,
+    "interactions": 10,
+    "accountsEngaged": 9,
+    "externalLinkTaps": null,
+    "reelsPctViews": 14.7,
+    "reelsPctInteractions": 40.0,
+    "posts": [
+     {
+      "date": null,
+      "hook": "No new feed content - week ran on residual 20 Jul posts",
+      "type": "-",
+      "pillar": "-",
+      "note": "All top content by views and by interactions dated 20 Jul; no new feed posts shipped this week."
+     }
+    ],
+    "weekNote": "Quietest week yet: views 307 (-37% vs 486), reach 102 (-29% vs 144), interactions 10 (-55% vs 22), accounts engaged 9 (-44% vs 16), profile visits 24 (-40% vs 40). Views by type: Stories 81.0%, Reels 14.7%, Posts 4.2%. Interactions: Stories 60% / Reels 40%. All top content dated 20 Jul - account coasting on residual reach. Followers 178 (+3) despite the content gap."
+   },
+   "substack": {
+    "subscribers": 110,
+    "newSubscribers": 2,
+    "openRate30d": 0.4747,
+    "clickRate": null,
+    "issues": [],
+    "weekNote": "No new issue (last remains 'Stop Telling People Animals Suffer', Jul 1) - third consecutive Wednesday missed (Jul 8/15/22). Subscribers 110 (+2; new subs 22 & 25 Jul) - second straight week of passive list growth with zero new content. 30-day open rate 47.47% - FLAT vs 47.47% last week, halting a four-week slide (55.1 -> 51.65 -> 48.99 -> 47.47 -> 47.47). Jul 1 issue keeps accruing: now 108 views, 6.38% engagement."
    }
   }
  ]
